@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio sesion</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css" 
+    rel="stylesheet">
+
+</head>
+<body id="fondo">
+  <header id="headerCustom">
+    <div class="d-flex justify-content-around align-items-center">
+          <img class="ms-5 img-fluid" id="iconLogotipo" src="../../assets/imagenes/logotipoFondo.png" alt="logotipo">
+        <h1>Biblioteca</h1>
+        <ul class="nav listaHeader">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-house iconCustom" id="home"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-book iconCustom"></i>
+            </a>
+          </li>
+          <li class="nav-item me-5">
+            <a class="nav-link" id="iconoCarrito">
+              <i class="bi bi-cart-check iconCustom" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
+            </a>
+          </li>
+          <li class="nav-item dropdown nav-link">
+                  <i class="bi bi-person-circle iconCustom"  data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" id="cerrarSesion">Cerrar Sesión</a></li>
+                </ul>
+          </li>
+      </ul>
+    </div>
+  </header>
+  <h1>Inicion sesion usuario</h1>
+    <form>
+        <button class="btn btn-danger" id="cerrarSesion">Cerrar Sesion</button>
+    </form>
+    <input type="text" placeholder="Busca el libro que deseas" id="buscador">
+
+    <div class="container">
+        <div class="row" id="contenedorLibros">
+        </div>
+    </div>
+    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Cosas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column" id="bodyOffcanvas">
+            <div id="items">
+            </div>
+      </div>
+    </div>  
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Sure?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <div id="contenedorLibrosModal">
+              <h1>Libros solicitados</h1>
+              <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="contenedorSlide">
+                  <!-- Aquí se añaden los libros seleccionados en la cesta-->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button> 
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+            <div id="contenedorMapaModal">
+              <h1>Ubicación de recogida</h1>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2896.3006465259373!2d-3.817103523203369!3d43.454320171112315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd494a320737094d%3A0x24818bb9a827567e!2sBiblioteca%20Central%20de%20Cantabria!5e0!3m2!1ses!2ses!4v1716640531851!5m2!1ses!2ses" 
+                style="border:0;" allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade" class="iframeModal"></iframe>
+            </div>
+            <div id="contenedorFecha">
+              <h1>Fecha de devolución</h1>
+              <input id="observacionesPrestamo" type="text" placeholder="introduce un comentario">
+              <div id="contenedorPlazoPrestamo">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Volver al carrito</button>
+            <button type="button" class="btn btn-primary" id="solicitarPrestamo" data-bs-dismiss="modal">Solicitar prestamo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <footer id="footerCustom">
+        <div class="text-center">
+          <input type="text" placeholder="Tu correo crack" class="inputFooter rounded-pill"> 
+          <input type="button" value="Log in" class="buttonFooter rounded-pill">
+        </div>
+      <div class="d-flex justify-content-evenly mt-5">
+        <div>
+          <ul class="titulosFooter">Fuentes usadas
+            <li class="elementosFooter">Mondongo</li>
+            <li class="elementosFooter">Matanga</li>
+            <li class="elementosFooter">Marico</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="titulosFooter">Fuentes usadas
+            <li class="elementosFooter">Mondongo</li>
+            <li class="elementosFooter">Matanga</li>
+            <li class="elementosFooter">Marico</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="titulosFooter">Fuentes usadas
+            <li class="elementosFooter">Mondongo</li>
+            <li class="elementosFooter">Matanga</li>
+            <li class="elementosFooter">Marico</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="hrFooter">
+      <div class="d-flex justify-content-end me-5">
+        <i class="bi bi-twitter iconCustom iconFooter me-3"></i>
+        <i class="bi bi-instagram iconCustom iconFooter me-3"></i>
+        <i class="bi bi-youtube iconCustom iconFooter me-3"></i>
+        <i class="bi bi-facebook iconCustom iconFooter me-3"></i>
+        <i class="bi bi-discord iconCustom iconFooter me-3"></i>
+      </div>
+    </footer>
+</body>
+<script src="../js/InicioUsuario.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html> 

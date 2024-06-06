@@ -1,0 +1,215 @@
+#logIn {
+    height: 100vh;
+    
+}
+img {
+    max-height: 50vh;
+    max-width: 90vw;
+}
+@media screen and (max-width: 778px){
+    img {
+    max-height: unset;
+    max-width: 90vw;
+}}
+
+#desplazarElementosHeader {
+    margin-right: 10%;
+}
+
+#iconLogotipo {
+    height: 100px;
+}
+
+body {
+    width: 100%;
+    /* background-image: url('../imagenes/fondo.jpg'); */
+}
+
+.iconCustom {
+    color: #c5989e;
+    transition: color 0.5s ease;
+}
+
+.iconCustom:hover {
+    color: #f5e1e2; 
+}
+
+.iconFooter {
+    font-size: 3em;
+}
+
+#headerCustom {
+    background-color: #5d043f;
+}
+
+#footerCustom {
+    min-height: 40vh;
+    padding-top: 5vh;
+    background-color: #5d043f;
+    border-radius: 10px 10px 0 0;
+}
+
+.nav-link i {
+    font-size: 30px;
+}
+
+.inputFooter {
+    border: 2px solid #c5989e;
+    color: #c5989e;
+    background-color: #5d043f;
+    padding: 5px;
+    padding-left: 15px;
+    width: 60vh;
+}
+
+.inputFooter::placeholder {
+    color:#c5989e;
+}
+.inputFooter:focus {
+    outline: none;
+}
+
+.buttonFooter {
+    right: 70px;
+    position: relative;
+    width: 20vh;
+    padding: 5px;
+    background-color: #c5989e;
+    color: #5d043f;
+    border: 2px solid #c5989e;
+}
+
+.buttonFooter:hover {
+    background-color: #f5e1e2;
+}
+
+.hrFooter {
+    width: 100vh;
+    margin: 0 auto;
+    border: 1px solid #c5989e;
+    opacity: 1;
+}
+
+.titulosFooter {
+    color: #f5e1e2;
+}
+
+.elementosFooter {
+    color: #c5989e;
+}
+
+
+@media (max-width:575.98px) {
+    .nav-link i {
+        font-size: 25px;
+    }
+    #iconLogotipo {
+        height: 50px;
+    }
+    .listaHeader *{
+        margin: 0 !important;
+        padding: 0;
+    }
+
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    .nav-link i {
+        font-size: 30px;
+    }
+
+}
+
+/* Para pantallas grandes (768px a 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    .nav-link i {
+        font-size: 35px;
+    }
+
+}
+
+/* Para pantallas extra grandes (992px y más) */
+@media (min-width: 992px) {
+
+    .nav-link i {
+        font-size: 40px;
+    }
+
+}
+
+/* MODAL */
+
+#contenedorLibrosModal {
+    border: 1px solid black;
+    height: 30%;
+}
+
+#contenedorMapaModal {
+    border: 1px solid black;
+    height: 60%;
+}
+#contenedorFecha {
+    border: 1px solid black;
+    height: 30%;
+}
+
+.iframeModal {
+    min-height: 200px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.portadaSlide {
+    width: 100px;
+    height: 100px;
+}
+
+#botonComprar {
+    position: relative;
+}
+
+#botonOcultoCerrarOffcanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: unset;
+}
+
+.menuAdminIcon {
+    color: #c5989e;
+    transition: color 0.5s ease;
+    font-size: 35px;
+}
+
+.menuAdminIcon:hover {
+    color: #f5e1e2; 
+}
+
+.offcanvasCustom {
+    width: 15vh !important;
+    background-color: #5d043f;
+}
+
+.listaAdminOffcanvas {
+    margin: 0 auto;
+    color:#c5989e;
+    background-color: #5d043f;
+}
+
+.iconCustomOffCanvas:hover {
+    font-style: #f5e1e2;
+}
+
+.fondo {
+    width: 100vh;
+    height: 100vh;
+}
+
+.iconSeleccionado {
+    color: #f5e1e2;
+}
