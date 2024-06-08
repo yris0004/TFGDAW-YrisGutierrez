@@ -59,7 +59,7 @@ function tablaLibros() {
                             }
                         },
                         { data: 'nombres_generos', title: 'Generos' },
-                        { data: 'pais_autor', title: 'Pais' },
+                        { data: 'pais_autor', title: 'País' },
                         { data: 'sinopsis', title: 'Sinopsis', orderable: false},
                         { data:'observaciones', title: 'Observaciones', orderable: false},
                         { 
@@ -69,12 +69,13 @@ function tablaLibros() {
                                 return `
                                 <div class="d-flex">
                                     <a class="nav-link btn-remove" id="btnRemove_${row.id_libro}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_libro}"><i class="bi bi-pencil-square""></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_libro}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square"></i></a>
                                 </div>`
                             }
                         }
                     ]
                 });
+                // $('#tablaLibros').addClass('col table table-hover');
                 $('#tablaLibros').on('click','.btn-edit', function() {
                     let idBtnLibros = this.id;
                     let cadena = idBtnLibros.split("_");
@@ -152,17 +153,19 @@ function tablaAutores() {
                         { data:'observaciones', title: 'Observaciones', orderable: false},
                         { 
                             data: null,
+                            title: 'Acciones',
                             orderable: false,
                             render: function(row) {
                                 return `
                                 <div class="d-flex">
                                     <a class="nav-link btn-remove" id="btnRemove_${row.id_autor}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_autor}"><i class="bi bi-pencil-square""></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_autor}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square"></i></a>
                                 </div>`
                             }
                         }
                     ]
                 });
+                // $('#tablaLibros').addClass('col table table-hover');
                 $('#tablaLibros').on('click','.btn-edit', function() {
                     let idBtnAutor = this.id;
                     let cadena = idBtnAutor.split("_");
@@ -242,7 +245,7 @@ function tablaEditoriales() {
                                 return `
                                 <div class="d-flex">
                                     <a class="nav-link btn-remove" id="btnRemove_${row.id_editorial}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_editorial}"><i class="bi bi-pencil-square""></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_editorial}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square""></i></a>
                                 </div>`
                             }
                         }
@@ -327,7 +330,7 @@ function tablaGeneros() {
                                 return `
                                 <div class="d-flex">
                                     <a class="nav-link btn-remove" id="btnRemove_${row.id_genero}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_genero}"><i class="bi bi-pencil-square""></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_genero}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square""></i></a>
                                 </div>`
                             }
                         }
@@ -425,7 +428,7 @@ function tablaEjemplares() {
                                 return `
                                 <div class="d-flex">
                                     <a class="nav-link btn-remove" id="btnRemove_${row.id_ejemplar}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_ejemplar}"><i class="bi bi-pencil-square""></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_ejemplar}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square""></i></a>
                                 </div>`
                             }
                         }

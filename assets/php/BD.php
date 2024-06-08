@@ -18,12 +18,14 @@ class BD extends ConexionBD
         //var_dump($this->conexion);
         try {
 
+            $error = false;
+
             $sql = $this->conexion->prepare("SELECT COUNT(*) 
             FROM usuarios 
             WHERE nombre_usuario = ?");
             $sql->execute([$arrDatosUsuario['nombre_usuario']]);
             if ($sql->fetchColumn() > 0) {
-                return false;
+                $error = true;
             }
     
             // Verificar si el correo electrónico ya existe
@@ -32,7 +34,7 @@ class BD extends ConexionBD
             WHERE email = ?");
             $sql->execute([$arrDatosUsuario['email']]);
             if ($sql->fetchColumn() > 0) {
-                return false;
+                $error = true;
             }
     
             // Verificar si el número de teléfono ya existe
@@ -41,31 +43,36 @@ class BD extends ConexionBD
             WHERE telefono = ?");
             $sql->execute([$arrDatosUsuario['telefono']]);
             if ($sql->fetchColumn() > 0) {
-                return false;
+                $error = true;
             }
 
             //Se comprueba que la contraseña no está vacía
             if (empty($arrDatosUsuario['password'])) {
-                return false;
+                $error = true;
             }
 
-            //Se utiliza un hash para guardar la contraseña codificada por motivos de seguridad
-            $arrDatosUsuario["password"] = password_hash($arrDatosUsuario["password"], PASSWORD_DEFAULT);
-            $sql = $this->conexion->prepare("INSERT INTO usuarios 
-            (admin, nombre_usuario, nombre, apellido, email, password, activo, observaciones, telefono) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $sql->execute([
-                $arrDatosUsuario['admin'],
-                $arrDatosUsuario['nombre_usuario'],
-                $arrDatosUsuario['nombre'],
-                $arrDatosUsuario['apellido'],
-                $arrDatosUsuario['email'],
-                $arrDatosUsuario['password'],
-                $arrDatosUsuario['activo'],
-                $arrDatosUsuario['observaciones'],
-                $arrDatosUsuario['telefono']
-            ]);
-            return true;
+            if($error !== true) {
+                //Se utiliza un hash para guardar la contraseña codificada por motivos de seguridad
+                $arrDatosUsuario["password"] = password_hash($arrDatosUsuario["password"], PASSWORD_DEFAULT);
+                $sql = $this->conexion->prepare("INSERT INTO usuarios 
+                (admin, nombre_usuario, nombre, apellido, email, password, activo, observaciones, telefono) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $sql->execute([
+                    $arrDatosUsuario['admin'],
+                    $arrDatosUsuario['nombre_usuario'],
+                    $arrDatosUsuario['nombre'],
+                    $arrDatosUsuario['apellido'],
+                    $arrDatosUsuario['email'],
+                    $arrDatosUsuario['password'],
+                    $arrDatosUsuario['activo'],
+                    $arrDatosUsuario['observaciones'],
+                    $arrDatosUsuario['telefono']
+                ]);
+                return true;
+            }
+            else {
+                return false;
+            }
         } catch (\PDOException $e) {
             exit("Error en la consulta:" . $e->getMessage());
         }

@@ -1,6 +1,5 @@
 #logIn {
     height: 100vh;
-    
 }
 img {
     max-height: 50vh;
@@ -22,7 +21,18 @@ img {
 
 body {
     width: 100%;
-    /* background-image: url('../imagenes/fondo.jpg'); */
+    background-image: url('../imagenes/fondo.jpg');
+}
+
+.botonCustom {
+    background-color: #5d043f;
+    border: none;
+}
+
+.botonCustom:hover{
+    background-color: white;
+    color: #5d043f;
+    border: 1px solid #5d043f;
 }
 
 .iconCustom {
@@ -212,4 +222,28 @@ body {
 
 .iconSeleccionado {
     color: #f5e1e2;
+}
+
+table.dataTable thead tr {
+    background-color: #5d043f !important;
+    color: #f5e1e2;
+}
+
+table.dataTable thead tr th {
+    border-right:1px solid white !important;
+    border-bottom:none !important;
+}
+
+table.dataTable thead tr th:hover{
+    color: white !important;
+}
+
+table.dataTable thead tr th:last-child {
+    background-color: none!important;
+    border-right: none !important;
+    border-bottom:none !important;
+}
+
+table.dataTable tbody tr {
+    border-bottom:1px solid #5d043f !important;
 }

@@ -35,6 +35,8 @@ function registroUsuario(e) {
         data: parametros,
         success: function (respuesta) {
             let usuarioCreado = JSON.parse(respuesta);
+            console.log(respuesta);
+            console.log(usuarioCreado);
             if(usuarioCreado) {
                 // console.log(usuarioCreado);
                 window.location.href = '../html/sesion.html';

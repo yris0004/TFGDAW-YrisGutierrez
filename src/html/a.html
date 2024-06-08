@@ -47,6 +47,88 @@
         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
       </div>
+
+      <div class="d-flex justify-content-around align-items-center">
+        <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+          aria-controls="offcanvasExample">
+          <i class="bi bi-list menuAdminIcon"></i>
+        </a>
+        <!-- <img class="ms-5 img-fluid" id="iconLogotipo" src="../../assets/imagenes/logotipoFondo.png" alt="logotipo"> -->
+        <h1>Biblioteca</h1>
+        <ul class="nav listaHeader">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-house iconCustom" id="home"></i>
+            </a>
+          </li>
+          <li class="nav-item dropdown nav-link">
+            <i class="bi bi-plus-lg iconCustom" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="selectNewLibro" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Añadir libro</a></li>
+              <li><a class="dropdown-item" id="selectNewEjemplar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Añadir Ejemplar</a></li>
+              <li><a class="dropdown-item" id="selectNewGenero" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Añadir Genero</a></li>
+              <li><a class="dropdown-item" id="selectNewAutor" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Añadir Autores</a></li>
+              <li><a class="dropdown-item" id="selectNewEditorial" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Añadir Editoriales</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="bi bi-people-fill iconCustom" id="btnAllUsuarios"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span class="i-eos-icons-admin-outlined"></span>
+            </a>
+          </li>
+          <li class="nav-item dropdown nav-link">
+            <i class="bi bi-person-circle iconCustom" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="perfil">Perfil</a></li>
+              <li><a class="dropdown-item" id="cerrarSesion">Cerrar Sesión</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        Abrir Offcanvas
+    </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Cosas</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column" id="bodyOffcanvas">
+              <div id="items">
+              </div>
+        </div>
+      </div>  
+
+    <!-- Botón para abrir el modal -->
+    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Abrir Modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Sure?</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div id="contenedorLibrosModal">
+                      <h1>Libros solicitados</h1>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Volver al carrito</button>
+                  <button type="button" class="btn btn-primary" id="solicitarPrestamo" data-bs-dismiss="modal">Solicitar prestamo</button>
+              </div>
+          </div>
+      </div>
+  </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

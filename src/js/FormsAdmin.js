@@ -24,42 +24,51 @@ function crearElemento(etiqueta, contenido, atributos) {
 
 function formAutor(datosAutor = null) {
     // console.log(datosAutor);
-    const contenedor = document.querySelector('#tabla-container');
+    const contenedor = document.querySelector('#contenedorFormularioModal');
     contenedor.innerHTML = "";
 
     const formulario = crearElemento("form", undefined, {id: "formAutor"});
     let contenedorElemForm;
+    let contenedorCol;
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
+    contenedorRow = crearElemento("div", undefined, {class: "row"});
+    contenedorCol = crearElemento("div", undefined, {class: "col-6"});
+
+    contenedorElemForm.appendChild(contenedorRow);
+    contenedorRow.appendChild(contenedorCol);
+    formulario.appendChild(contenedorElemForm);
+
     const labelNombre = crearElemento("label", 'Nombre', {for: "inputNombreAutor"});
-    const inputNombre = crearElemento("input", undefined, {type: "text", id: "inputNombreAutor"});
-    contenedorElemForm.appendChild(labelNombre);
-    contenedorElemForm.appendChild(inputNombre);
-    formulario.appendChild(contenedorElemForm);
+    const inputNombre = crearElemento("input", undefined, {type: "text", id: "inputNombreAutor", class: "form-control"});
+    contenedorCol.appendChild(labelNombre);
+    contenedorCol.appendChild(inputNombre);
+    contenedorRow.appendChild(contenedorCol);
 
-    contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
+    contenedorCol = crearElemento("div", undefined, {class: "col-6"});
     const labelApellidos = crearElemento("label", 'Apellidos', {for: "inputApellidosAutor"});
-    const inputApellidos = crearElemento("input", undefined, {type: "text", id: "inputApellidosAutor"});
-    contenedorElemForm.appendChild(labelApellidos);
-    contenedorElemForm.appendChild(inputApellidos);
-    formulario.appendChild(contenedorElemForm);
+    const inputApellidos = crearElemento("input", undefined, {type: "text", id: "inputApellidosAutor", class: "form-control"});
+    contenedorCol.appendChild(labelApellidos);
+    contenedorCol.appendChild(inputApellidos);
+    contenedorRow.appendChild(contenedorCol);
+
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelPais = crearElemento("label", 'Pais', {for: "inputPaisAutor"});
-    const inputPais = crearElemento("input", undefined, {type: "text", id: "inputPaisAutor"});
+    const inputPais = crearElemento("input", undefined, {type: "text", id: "inputPaisAutor", class: "form-control"});
     contenedorElemForm.appendChild(labelPais);
     contenedorElemForm.appendChild(inputPais);
     formulario.appendChild(contenedorElemForm);
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelObservaciones = crearElemento("label", 'Observaciones', {for: "inputObservacionesAutor"});
-    const inputObservaciones = crearElemento("input", undefined, {type: "text", id: "inputObservacionesAutor"});
+    const inputObservaciones = crearElemento("textarea", undefined, {type: "text", id: "inputObservacionesAutor", class: "form-control", style:"resize: none;"});
     contenedorElemForm.appendChild(labelObservaciones);
     contenedorElemForm.appendChild(inputObservaciones);
     formulario.appendChild(contenedorElemForm);
 
     const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-    const btnAdd = crearElemento("input", undefined, {type: "button", value: "New Autor", id: "btnAddAutor", class: "btn btn-primary"});
+    const btnAdd = crearElemento("input", undefined, {type: "button", value: "Añadir", id: "btnAddAutor", class: "btn btn-primary botonCustom"});
     contenedorBtn.appendChild(btnAdd);
     formulario.appendChild(contenedorBtn);
 
@@ -77,7 +86,7 @@ function formAutor(datosAutor = null) {
         // btnAdd.removeEventListener("click", crearNewAutor);
         btnAdd.parentElement.remove();
         const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-        const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary"});
+        const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary botonCustom"});
         contenedorBtn.appendChild(btnUpdate);
         formulario.appendChild(contenedorBtn);
 
@@ -128,7 +137,7 @@ function crearNewAutor() {
 }
 
 function formGenero(datosGenero = null) {
-    const contenedor = document.querySelector('#tabla-container');
+    const contenedor = document.querySelector('#contenedorFormularioModal');
     contenedor.innerHTML = "";
 
     const formulario = crearElemento("form", undefined, {id: "formGenero"});
@@ -136,20 +145,20 @@ function formGenero(datosGenero = null) {
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelNombre = crearElemento("label", 'Nombre', {for: "inputNombreGenero"});
-    const inputNombre = crearElemento("input", undefined, {type: "text", id: "inputNombreGenero"});
+    const inputNombre = crearElemento("input", undefined, {type: "text", id: "inputNombreGenero", class:"form-control"});
     contenedorElemForm.appendChild(labelNombre);
     contenedorElemForm.appendChild(inputNombre);
     formulario.appendChild(contenedorElemForm);
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelObservaciones = crearElemento("label", 'Observaciones', {for: "inputObservacionesGenero"});
-    const inputObservaciones = crearElemento("input", undefined, {type: "text", id: "inputObservacionesGenero"});
+    const inputObservaciones = crearElemento("textarea", undefined, {type: "text", id: "inputObservacionesGenero", class:"form-control", style:"resize: none;"});
     contenedorElemForm.appendChild(labelObservaciones);
     contenedorElemForm.appendChild(inputObservaciones);
     formulario.appendChild(contenedorElemForm);
 
     const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-    const btnAdd = crearElemento("input", undefined, {type: "button", value: "New Genero", id: "btnAddAutor", class: "btn btn-primary"});
+    const btnAdd = crearElemento("input", undefined, {type: "button", value: "Añadir", id: "btnAddAutor", class: "btn btn-primary botonCustom"});
     contenedorBtn.appendChild(btnAdd);
     formulario.appendChild(contenedorBtn);
 
@@ -165,7 +174,7 @@ function formGenero(datosGenero = null) {
         // btnAdd.removeEventListener("click", crearNewAutor);
         btnAdd.parentElement.remove();
         const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-        const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary"});
+        const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary botonCustom"});
         contenedorBtn.appendChild(btnUpdate);
         formulario.appendChild(contenedorBtn);
 
@@ -263,7 +272,7 @@ function formLibro(datosLibro = null) {
     });
 
     // console.log(allGeneros);
-    const contenedor = document.querySelector('#tabla-container');
+    const contenedor = document.querySelector('#contenedorFormularioModal');
     contenedor.innerHTML = "";
 
     const formulario = crearElemento("form", undefined, {id: "formLibro"});
@@ -271,14 +280,14 @@ function formLibro(datosLibro = null) {
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelNombre = crearElemento("label", 'Titulo', {for: "inputNombreLibro"});
-    const inputNombre = crearElemento("input", undefined, {type: "text", id: "inputNombreLibro"});
+    const inputNombre = crearElemento("input", undefined, {type: "text", id: "inputNombreLibro", class:"form-control"});
     contenedorElemForm.appendChild(labelNombre);
     contenedorElemForm.appendChild(inputNombre);
     formulario.appendChild(contenedorElemForm);
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelSinopsis = crearElemento("label", 'Sinopsis', {for: "inputSinopsisLibro"});
-    const inputSinopsis = crearElemento("input", undefined, {type: "text", id: "inputSinopsisLibro"});
+    const inputSinopsis = crearElemento("textarea", undefined, {type: "text", id: "inputSinopsisLibro", class:"form-control"});
     contenedorElemForm.appendChild(labelSinopsis);
     contenedorElemForm.appendChild(inputSinopsis);
     formulario.appendChild(contenedorElemForm);
@@ -316,13 +325,13 @@ function formLibro(datosLibro = null) {
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelObservaciones = crearElemento("label", 'Observaciones', {for: "inputObservacionesLibro"});
-    const inputObservaciones = crearElemento("input", undefined, {type: "text", id: "inputObservacionesLibro"});
+    const inputObservaciones = crearElemento("textarea", undefined, {type: "text", id: "inputObservacionesLibro", class: "form-control", style:"resize: none;"});
     contenedorElemForm.appendChild(labelObservaciones);
     contenedorElemForm.appendChild(inputObservaciones);
     formulario.appendChild(contenedorElemForm);
 
     const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-    const btnAdd = crearElemento("input", undefined, {type: "button", value: "New Libro", id: "btnAddAutor", class: "btn btn-primary"});
+    const btnAdd = crearElemento("input", undefined, {type: "button", value: "Añadir", id: "btnAddAutor", class: "btn btn-primary botonCustom"});
     contenedorBtn.appendChild(btnAdd);
     formulario.appendChild(contenedorBtn);
 
@@ -374,7 +383,7 @@ function formLibro(datosLibro = null) {
         }
         btnAdd.parentElement.remove();
         const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-        const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary"});
+        const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary botonCustom"});
         contenedorBtn.appendChild(btnUpdate);
         formulario.appendChild(contenedorBtn);
 
@@ -434,7 +443,7 @@ function crearNewLibro(selectedGeneros, selectedAutor) {
 }
 
 function formEditorial(datosEditorial = null) {
-    const contenedor = document.querySelector('#tabla-container');
+    const contenedor = document.querySelector('#contenedorFormularioModal');
     contenedor.innerHTML = "";
 
     const formulario = crearElemento("form", undefined, {id: "formEditorial"});
@@ -442,20 +451,20 @@ function formEditorial(datosEditorial = null) {
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelNombre = crearElemento("label", 'Nombre', {for: "inputNombreEditorial"});
-    const inputNombre = crearElemento("input", undefined, {type: "text", id: "inputNombreEditorial"});
+    const inputNombre = crearElemento("input", undefined, {type: "text", id: "inputNombreEditorial", class: "form-control"});
     contenedorElemForm.appendChild(labelNombre);
     contenedorElemForm.appendChild(inputNombre);
     formulario.appendChild(contenedorElemForm);
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelObservaciones = crearElemento("label", 'Observaciones', {for: "inputObservacionesEditorial"});
-    const inputObservaciones = crearElemento("input", undefined, {type: "text", id: "inputObservacionesEditorial"});
+    const inputObservaciones = crearElemento("textarea", undefined, {type: "text", id: "inputObservacionesEditorial", style:"resize: none;", class: "form-control"});
     contenedorElemForm.appendChild(labelObservaciones);
     contenedorElemForm.appendChild(inputObservaciones);
     formulario.appendChild(contenedorElemForm);
 
     const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-    const btnAdd = crearElemento("input", undefined, {type: "button", value: "New Editorial", id: "btnAddEditorial", class: "btn btn-primary"});
+    const btnAdd = crearElemento("input", undefined, {type: "button", value: "Añadir", id: "btnAddEditorial", class: "btn btn-primary botonCustom"});
     contenedorBtn.appendChild(btnAdd);
     formulario.appendChild(contenedorBtn);
 
@@ -468,7 +477,7 @@ function formEditorial(datosEditorial = null) {
 
         btnAdd.parentElement.remove();
         const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-        const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary"});
+        const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary botonCustom"});
         contenedorBtn.appendChild(btnUpdate);
         formulario.appendChild(contenedorBtn);
 
@@ -568,7 +577,7 @@ let allEditoriales;
       }
   });;
 
-  const contenedor = document.querySelector('#tabla-container');
+  const contenedor = document.querySelector('#contenedorFormularioModal');
   contenedor.innerHTML = "";
   
   const formulario = crearElemento("form", undefined, {id: "formLibro", method: "POST", enctype:"multipart/form-data"});
@@ -576,14 +585,14 @@ let allEditoriales;
 
   contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
   const labelNumPag = crearElemento("label", 'Numero de paginas', {for: "inputnumPaginas"});
-  const inputNumPag = crearElemento("input", undefined, {type: "number", id: "inputnumPaginas"});
+  const inputNumPag = crearElemento("input", undefined, {type: "number", id: "inputnumPaginas", class: "form-control"});
   contenedorElemForm.appendChild(labelNumPag);
   contenedorElemForm.appendChild(inputNumPag);
   formulario.appendChild(contenedorElemForm);
 
   contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
   const labelStock = crearElemento("label", 'Stock', {for: "inputstock"});
-  const inputStock = crearElemento("input", undefined, {type: "text", id: "inputstock"});
+  const inputStock = crearElemento("input", undefined, {type: "text", id: "inputstock", class: "form-control"});
   contenedorElemForm.appendChild(labelStock);
   contenedorElemForm.appendChild(inputStock);
   formulario.appendChild(contenedorElemForm);
@@ -631,13 +640,13 @@ let allEditoriales;
 
   contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
   const labelObservaciones = crearElemento("label", 'Observaciones', {for: "inputObservacionesEjemplar"});
-  const inputObservaciones = crearElemento("input", undefined, {type: "text", id: "inputObservacionesEjemplar"});
+  const inputObservaciones = crearElemento("textarea", undefined, {type: "text", id: "inputObservacionesEjemplar", style:"resize: none;", class: "form-control"});
   contenedorElemForm.appendChild(labelObservaciones);
   contenedorElemForm.appendChild(inputObservaciones);
   formulario.appendChild(contenedorElemForm);
 
   const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-  const btnAdd = crearElemento("input", undefined, {type: "button", value: "New Ejemplar", id: "btnAddEjemplar", class: "btn btn-primary"});
+  const btnAdd = crearElemento("input", undefined, {type: "button", value: "Añadir", id: "btnAddEjemplar", class: "btn btn-primary botonCustom"});
   contenedorBtn.appendChild(btnAdd);
   formulario.appendChild(contenedorBtn);
 
@@ -703,7 +712,7 @@ let allEditoriales;
 
     btnAdd.parentElement.remove();
     const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-    const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary"});
+    const btnUpdate = crearElemento("input", undefined, {type: "button", value: "Actualizar", id: "btnUpdate", class: "btn btn-primary botonCustom"});
     contenedorBtn.appendChild(btnUpdate);
     formulario.appendChild(contenedorBtn);
 
@@ -850,7 +859,7 @@ function formUsuario() {
     inputObservaciones.value = datosInicioSesion.observaciones;
 
     const contenedorBtn = crearElemento("div", undefined, {class: "mb-3"});
-    const btnActualizar = crearElemento("input", undefined, {type: "button", value: "Guardar Cambios", id: "btnUpdate", class: "btn btn-primary"});
+    const btnActualizar = crearElemento("input", undefined, {type: "button", value: "Guardar Cambios", id: "btnUpdate", class: "btn btn-primary botonCustom"});
     contenedorBtn.appendChild(btnActualizar);
     formulario.appendChild(contenedorBtn);
 
