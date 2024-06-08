@@ -59,7 +59,7 @@ if(isset($_REQUEST['sesionActiva']))
 if(isset($_REQUEST['cargarTodosLibros']))
 {   
     // echo var_dump($_REQUEST['cargarTodosLibros']);
-    $libros = $metodos->consultaGeneral('ejemplares');
+    $libros = $metodos->consultaGeneralInicioUsuario('ejemplares');
     echo json_encode($libros);
 
     // echo var_dump($libros);

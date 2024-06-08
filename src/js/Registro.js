@@ -34,13 +34,13 @@ function registroUsuario(e) {
         url: "../../assets/php/controladorSesion.php",
         data: parametros,
         success: function (respuesta) {
-            // respuesta = false;
-            if(respuesta) {
-                console.log(respuesta);
+            let usuarioCreado = JSON.parse(respuesta);
+            if(usuarioCreado) {
+                // console.log(usuarioCreado);
                 window.location.href = '../html/sesion.html';
             }
             else {
-                console.log(respuesta);
+                // console.log(usuarioCreado);
             }
         },
         error: function(a,b,errorMsg) {

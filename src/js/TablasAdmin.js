@@ -497,9 +497,10 @@ function tablaUsuarios() {
         success: function(data) {
             if (data) {
                 console.log('OK');
+
                 const allUsuarios = JSON.parse(data);
                 console.log(allUsuarios);
-                const indice = allUsuarios.findIndex(usuario => usuario.id_usuario = idInicioSesion);
+                const indice = allUsuarios.findIndex(usuario => usuario.id_usuario === idInicioSesion);
                 console.log(indice);
                 if(indice !== -1) {
                     allUsuarios.splice(indice,1);

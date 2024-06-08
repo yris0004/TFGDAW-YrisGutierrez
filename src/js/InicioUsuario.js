@@ -351,7 +351,7 @@ function realizarPrestamo() {
                 });
 
                 setTimeout(() => {
-                    window.location.href = '../html/Home.html'
+                    window.location.href = '../../index.html'
                     // imprimirLibros(AllBooks);
                 } ,1500);
 
