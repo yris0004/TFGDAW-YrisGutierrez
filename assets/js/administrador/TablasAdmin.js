@@ -37,7 +37,7 @@ function tablaLibros() {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorLibro/controladorLibro.php",
         type: "POST",
         data: parametrosLibros,
         success: function(data) {
@@ -136,7 +136,7 @@ function tablaAutores() {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorAutor/controladorAutor.php",
         type: "POST",
         data: parametrosLibros,
         success: function(data) {
@@ -226,7 +226,7 @@ function tablaEditoriales() {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEditorial/controladorEditorial.php",
         type: "POST",
         data: parametrosLibros,
         success: function(data) {
@@ -314,7 +314,7 @@ function tablaGeneros() {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorGenero/controladorGenero.php",
         type: "POST",
         data: parametrosLibros,
         success: function(data) {
@@ -402,7 +402,7 @@ function tablaEjemplares() {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
         type: "POST",
         data: parametrosLibros,
         success: function(data) {
@@ -439,8 +439,7 @@ function tablaEjemplares() {
                                 <div class="d-flex">
                                     <a class="nav-link btn-remove" id="btnRemove_${row.id_ejemplar}"><i class="bi bi-trash iconCustomTrash"></i></a>
                                     <a class="nav-link btn-edit" id="btnEdit_${row.id_ejemplar}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square iconCustomUpdate"></i></a>
-                                    <a class="nav-link btn-noDisponible" id="noDisponible_${row.id_ejemplar}"><i class="bi bi-0-circle iconCustomTrash"></i>
-</a>
+                                    <a class="nav-link btn-noDisponible" id="noDisponible_${row.id_ejemplar}"><i class="bi bi-0-circle iconCustomTrash"></i></a>
                                 </div>`
                             }
                         }
@@ -534,7 +533,7 @@ function tablaUsuarios() {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorUsuario/controladorUsuario.php",
         type: "POST",
         data: parametros,
         success: function(data) {
@@ -697,7 +696,7 @@ function tablaPrestamosUsuario(datosUsuario) {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorPrestamo/controladorPrestamo.php",
         type: "POST",
         data: parametros,
         success: function(data) {
@@ -769,7 +768,7 @@ function updateUsuario(idUsuario) {
     };
     console.log(parametros);
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorUsuario/controladorUsuario.php",
         type: "POST",
         data: parametros,
         success: function(data) {

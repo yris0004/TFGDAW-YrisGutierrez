@@ -113,7 +113,7 @@ function crearNewAutor() {
     console.log(parametros);
     $.ajax({
         type: "POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorAutor/controladorAutor.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -197,7 +197,7 @@ function crearNewGenero() {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorGenero/controladorGenero.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -227,7 +227,7 @@ function formLibro(datosLibro = null) {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorAutor/controladorAutor.php",
         type: "POST",
         data: parametros,
         async: false,
@@ -253,7 +253,7 @@ function formLibro(datosLibro = null) {
     };
 
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorGenero/controladorGenero.php",
         type: "POST",
         data: parametrosGenero,
         async: false,
@@ -430,7 +430,7 @@ function crearNewLibro(selectedGeneros, selectedAutor) {
     console.log(parametrosGeneros);
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorLibro/controladorLibro.php",
         data: {
             newLibro: JSON.stringify(parametros),
             newLibrosGeneros: JSON.stringify(parametrosGeneros)
@@ -516,7 +516,7 @@ function crearNewEditorial() {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEditorial/controladorEditorial.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -546,8 +546,8 @@ let allEditoriales;
   };
 
   $.ajax({
-      url: "../../assets/php/controladorSesion.php",
-      type: "POST",
+    url: "../../assets/php/controladores/controladorEditorial/controladorEditorial.php",
+    type: "POST",
       data: parametros,
       async: false,
       success: function(data) {
@@ -572,8 +572,8 @@ let allEditoriales;
   };
 
   $.ajax({
-      url: "../../assets/php/controladorSesion.php",
-      type: "POST",
+    url: "../../assets/php/controladores/controladorLibro/controladorLibro.php",
+    type: "POST",
       data: parametrosLibros,
       async: false,
       success: function(data) {
@@ -752,7 +752,7 @@ function crearNewEjemplar(selectedLibro, selectedEditorial) {
     console.log(parametros);
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -793,7 +793,7 @@ function crearNewPortada() {
 
         $.ajax({
             type:"POST",
-            url: "../../assets/php/controladorSesion.php",
+            url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
             data: parametros,
             success: function (respuesta) {
                 // respuesta = false;

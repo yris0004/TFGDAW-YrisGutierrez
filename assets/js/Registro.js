@@ -31,7 +31,7 @@ function registroUsuario(e) {
     console.log(parametros);
     $.ajax({
         type: "POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorUsuario/controladorUsuario.php",
         data: parametros,
         success: function (respuesta) {
             let usuarioCreado = JSON.parse(respuesta);
@@ -39,7 +39,7 @@ function registroUsuario(e) {
             console.log(usuarioCreado);
             if(usuarioCreado) {
                 // console.log(usuarioCreado);
-                window.location.href = '../html/sesion.html';
+                window.location.href = '../../src/html/sesion.html';
             }
             else {
                 // console.log(usuarioCreado);

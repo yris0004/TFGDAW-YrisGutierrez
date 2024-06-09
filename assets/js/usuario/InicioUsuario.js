@@ -21,7 +21,7 @@ function principal() {
     // console.log(parametros);
     
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
         type: "POST",
         data: parametros,
         async: false,
@@ -63,7 +63,7 @@ function cerrarSesion(e) {
 
     // console.log(parametros);
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorSesion.php",
         type: "POST",
         data: parametros,
         success: function(data) {
@@ -361,7 +361,7 @@ function realizarPrestamo() {
 
     $.ajax({
         type: "POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorPrestamo/controladorPrestamo.php",
         data: {
             newPrestamo: JSON.stringify(parametros),
             newPrestamoEjemplar: JSON.stringify(parametrosEjemplares)

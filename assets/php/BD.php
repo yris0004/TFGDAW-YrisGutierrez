@@ -10,7 +10,7 @@ class BD extends ConexionBD
         parent::__construct();
     }
 
-
+    
     //--------------------------FUNCIONES MANEJO USUARIOS---------------------------
 
     //Función para crear un nuevo registro de usuario mediante un parametro que es un array asociativo con las columnas y sus valores correspondientes

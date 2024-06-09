@@ -14,7 +14,7 @@ function deleteEditorial(idEditorial) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEditorial/controladorEditorial.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -42,7 +42,7 @@ function deleteGenero(idGenero) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorGenero/controladorGenero.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -70,7 +70,7 @@ function deleteAutor(idAutor) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorAutor/controladorAutor.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -98,7 +98,7 @@ function deleteLibro(idLibro) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorLibro/controladorLibro.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -126,7 +126,7 @@ function deleteEjemplar(idEjemplar) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;

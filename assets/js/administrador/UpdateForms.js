@@ -19,7 +19,7 @@ function updateEditorial(idEditorial) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEditorial/controladorEditorial.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -55,7 +55,7 @@ function updateGenero(idGenero) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorGenero/controladorGenero.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -95,7 +95,7 @@ function updateAutor(idAutor) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorAutor/controladorAutor.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -151,7 +151,7 @@ function updateLibro(idLibro,selectedGenerosIds, selectedAutoresIds) {
 
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorLibro/controladorLibro.php",
         data: {
             updateLibros: JSON.stringify(parametros),
             updateGenerosLibros: JSON.stringify(parametrosGeneros)
@@ -185,7 +185,7 @@ function actualizarPaginaPerfil(idUsuario) {
     console.log(parametros)
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorUsuario/controladorUsuario.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -230,7 +230,7 @@ function updateUsuarios(idUsuario) {
     console.log(parametros)
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorUsuario/controladorUsuario.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
@@ -260,7 +260,7 @@ function vaciarStock(idEjemplar) {
     }
     $.ajax({
         type:"POST",
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;

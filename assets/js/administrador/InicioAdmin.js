@@ -20,7 +20,7 @@ function cerrarSesion() {
 
     // console.log(parametros);
     $.ajax({
-        url: "../../assets/php/controladorSesion.php",
+        url: "../../assets/php/controladores/controladorSesion.php",
         type: "POST",
         data: parametros,
         success: function(data) {
