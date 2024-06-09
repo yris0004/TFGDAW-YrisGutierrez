@@ -20,6 +20,7 @@ class BD extends ConexionBD
 
             $error = false;
 
+            // Verificar si el nombre de usuario ya existe
             $sql = $this->conexion->prepare("SELECT COUNT(*) 
             FROM usuarios 
             WHERE nombre_usuario = ?");
@@ -506,7 +507,7 @@ class BD extends ConexionBD
     public function transaccionRegistro ($arrNewPrestamos, $arrNewPrestamoEjemplar) {
         
         try {
-            $conexion = self::conexionBD();
+            // $conexion = self::conexionBD();
             $this->conexion->beginTransaction();
             
             self::insertarRegistro('prestamos', $arrNewPrestamos);
@@ -518,7 +519,7 @@ class BD extends ConexionBD
                 self::insertarRegistro('prestamo_ejemplar', $ejemplar);
                 $stock = self::stockEjemplar($ejemplar['fk_ejemplar']);
                 $actualizarStockEjemplar = array(
-                    'id_ejeplar' => $ejemplar['fk_ejemplar'],
+                    'id_ejemplar' => $ejemplar['fk_ejemplar'],
                     'stock' => $stock-1,
                 );
                 self::actualizarRegistro($actualizarStockEjemplar,'ejemplares');

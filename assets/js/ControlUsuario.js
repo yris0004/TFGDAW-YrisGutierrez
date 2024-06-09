@@ -1,14 +1,15 @@
 window.addEventListener("load",principal);
 
-let usuarioSesion = JSON.parse(localStorage.getItem('usuarioSesion')) || [];
+//Se crea la variable usuarioSesion como un array vacio 
+let usuarioSesion = [];
+
 function principal() {
 
-        document.querySelector("#LogIn").addEventListener("click", inicioSesion);
-    // if(document.querySelector("#cerrarSesion") !== null){
-        // document.querySelector("#cerrarSesion").addEventListener("click", cerrarSesion);
-    // }
+    document.querySelector("#LogIn").addEventListener("click", inicioSesion);
+
 }
 
+//Dependiendo de si el usuario es administrador o no se le redirecciona a una interfaz u otra
 function inicioSesion(e) {
     e.preventDefault();
 
@@ -21,8 +22,6 @@ function inicioSesion(e) {
         'password': password
     })
     }; 
-
-    console.log(parametros);
     
     $.ajax({
         url: "../../assets/php/controladores/controladorSesion.php",
@@ -30,12 +29,10 @@ function inicioSesion(e) {
         data: parametros,
         success: function(data) {
             usuarioSesion = JSON.parse(data);
-            console.log(usuarioSesion);
             if (usuarioSesion === false) {
-                console.log('NO OK');
+                // console.log('NO OK');
             } else {
-                console.log('OK');
-                console.log(usuarioSesion.admin);
+                // console.log('OK');
                 if(usuarioSesion.admin === 1) {
                     localStorage.setItem('usuarioSesion', JSON.stringify(usuarioSesion));
                     window.location.href = '../html/InicioAdmin.html';

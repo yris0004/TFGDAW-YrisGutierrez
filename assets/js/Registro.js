@@ -6,6 +6,7 @@ function principal() {
 }
 
 function registroUsuario(e) {
+
     e.preventDefault();
     const nombreRegistro = document.querySelector("#nombreRegistro").value;
     const apellidoRegistro = document.querySelector("#apellidoRegistro").value;
@@ -15,6 +16,7 @@ function registroUsuario(e) {
     const telefonoRegistro = document.querySelector("#telefonoRegistro").value;
     const comentarioRegistro = document.querySelector("#comentarioRegistro").value;
 
+    //Se activa la cuenta por defecto una vez creada 
     const parametros = {
         newUsuario: JSON.stringify({
             'admin': 0,
@@ -28,7 +30,7 @@ function registroUsuario(e) {
             'telefono': telefonoRegistro
         })
     }; 
-    console.log(parametros);
+
     $.ajax({
         type: "POST",
         url: "../../assets/php/controladores/controladorUsuario/controladorUsuario.php",
@@ -38,7 +40,7 @@ function registroUsuario(e) {
             console.log(respuesta);
             console.log(usuarioCreado);
             if(usuarioCreado) {
-                // console.log(usuarioCreado);
+                //Si el usuario se crea con exito se redirecciona a la página de inicio sesión
                 window.location.href = '../../src/html/sesion.html';
             }
             else {
