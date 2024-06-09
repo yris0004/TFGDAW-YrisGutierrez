@@ -109,11 +109,24 @@ function imprimirLibros(arrLibros) {
         //     nombresLibrosExistentes.set(key,true);
 
             const contenedorLibro = crearElemento("div",undefined,{
-                class:"col-12 col-sm-6 col-md-3"
+                class:"col-2 me-3 mb-5 card cartaCatalogo"
             });
 
-            const botonNombreLibro = crearElemento("button",libro.nombre_libro,{
-                id: libro.id_ejemplar
+            const cardImagen = crearElemento("div",undefined,{
+                class:"d-flex h-100 w-100 pt-3 align-self-center cartaContendorImagen"
+            });
+
+            const cardBody = crearElemento("div",undefined,{
+                class:"card-body text-center contenedorCuerpoCarta"
+            });
+
+            const vistaPrevia = crearElemento("p", "Vista previa",{
+                class: "vistaPreviaCatalogo"
+            });
+
+            const botonNombreLibro = crearElemento("button","Agregar",{
+                id: libro.id_ejemplar,
+                class: "botonLibroCatalogo w-100 botonCatalogo"
             });
 
             // console.log(portada)
@@ -122,14 +135,18 @@ function imprimirLibros(arrLibros) {
             const portadaLibro = crearElemento("img",undefined,{
                 src: enlacePortada,
                 alt: libro.portada,
-                class: "w-100"
+                class: "card-img-top"
             })
             // console.log(enlacePortada);
             // console.log(libro);
             
+            cardImagen.append(portadaLibro, vistaPrevia);
+            cardBody.append(botonNombreLibro);
+            contenedorLibro.append(cardImagen, cardBody);
+
             contenedorTodosLibros.appendChild(contenedorLibro);
-            contenedorLibro.appendChild(portadaLibro);
-            contenedorLibro.appendChild(botonNombreLibro);
+            // contenedorLibro.appendChild(portadaLibro);
+            // contenedorLibro.appendChild(botonNombreLibro);
 
             botonNombreLibro.addEventListener("click", function(event) {
                 infoLibro(libro);
@@ -160,7 +177,18 @@ function infoLibro(libroSeleccionado){
     contenedorTodosLibros = document.querySelector('#contenedorLibros');
     contenedorTodosLibros.innerHTML = "";
     // console.log(libroSeleccionado);
-    const contenedorLibro = crearElemento("div", undefined);
+    const contenedorLibro = crearElemento("div", undefined, {
+        class: "row"
+    });
+
+    const contenedorCartaIzquierda = crearElemento("div",undefined, {
+        class: "col-4 contenedorCartaVistaPreviaIzquierda"
+    });
+
+    const contenedorCartaDerecha = crearElemento("div",undefined, {
+        class: "col-7 contenedorCartaVistaPreviaDerecho"
+    });
+
     const titulo = crearElemento("p",libroSeleccionado.nombre_libro,{
         id: libroSeleccionado.id_ejemplar
     });
@@ -169,7 +197,7 @@ function infoLibro(libroSeleccionado){
     // console.log(portada)
     const enlacePortada = "../../assets/imagenes/" + libroSeleccionado.portada;
     const botonCarrito = crearElemento("button", "Agregar al carrito",{
-        class:"btn btn-primary",
+        class:"btn btn-primary botonCustom",
         type:"button",
         "data-bs-toggle":"offcanvas",
         "data-bs-target":"#offcanvasRight", 
@@ -178,12 +206,13 @@ function infoLibro(libroSeleccionado){
     const portadaLibro = crearElemento("img",undefined,{
         src: enlacePortada,
         alt: libroSeleccionado.portada,
+        class: "img-fluid"
     });
+
+    contenedorCartaIzquierda.appendChild(portadaLibro);
+    contenedorCartaDerecha.append(titulo, stock, botonCarrito)
+    contenedorLibro.append(contenedorCartaIzquierda, contenedorCartaDerecha);
     contenedorTodosLibros.appendChild(contenedorLibro);
-    contenedorLibro.appendChild(portadaLibro);
-    contenedorLibro.appendChild(titulo);
-    contenedorLibro.appendChild(stock);
-    contenedorLibro.appendChild(botonCarrito);
 
     botonCarrito.addEventListener('click', function (){
         agregarCarrito(libroSeleccionado)

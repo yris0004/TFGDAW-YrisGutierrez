@@ -339,7 +339,17 @@ function formLibro(datosLibro = null) {
         const selectedGenerosIds = Array.from(selectGeneros.selectedOptions).map(option => option.id);
         const selectedAutoresIds = selectAutores.selectedOptions[0].id;
 
-        crearNewLibro(selectedGenerosIds,selectedAutoresIds);
+        const cadenaAutor = selectedAutoresIds.split("_");
+        const autorSeleccionado = parseInt(cadenaAutor[1]);
+        let generosSeleccionados = [];
+        selectedGenerosIds.forEach(idgenero => {
+
+            cadenaGenero = idgenero.split("_");
+            generoSeleccionado = parseInt(cadenaGenero[1]);
+            generosSeleccionados.push(generoSeleccionado);
+        });
+
+        crearNewLibro(generosSeleccionados,autorSeleccionado);
     });
 
     // Añadir el formulario completo al contenedor
@@ -402,6 +412,9 @@ function crearNewLibro(selectedGeneros, selectedAutor) {
     const nombreLibro = document.querySelector('#inputNombreLibro').value;
     const sinopsisLibro = document.querySelector('#inputSinopsisLibro').value;
     const observacionesLibro = document.querySelector('#inputObservacionesLibro').value;
+
+    console.log(selectedAutor);
+    console.log(selectedGeneros);
 
     const parametros = {
         nombre_libro: nombreLibro,

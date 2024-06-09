@@ -53,6 +53,7 @@ body {
 }
 
 #footerCustom {
+    margin-top: 10%;
     min-height: 40vh;
     padding-top: 5vh;
     background-color: #5d043f;
@@ -94,7 +95,7 @@ body {
 }
 
 .hrFooter {
-    width: 100vh;
+    width: 50%;
     margin: 0 auto;
     border: 1px solid #c5989e;
     opacity: 1;
@@ -246,4 +247,145 @@ table.dataTable thead tr th:last-child {
 
 table.dataTable tbody tr {
     border-bottom:1px solid #5d043f !important;
+}
+
+table.dataTable tbody {
+    background-color: white;
+}
+
+table.dataTable tbody tr:last-child {
+    border-bottom:1px solid white !important;
+}
+
+table.dataTable tbody td:last-child {
+    border-left: 1px solid #5d043f !important;
+} 
+
+.encabezadoTabla{
+margin: 0 !important;
+position: relative !important;
+bottom: -5px !important;
+background-color: #5d043f  !important;
+border-top-left-radius: 20px !important;
+border-top-right-radius: 20px !important;
+padding-left: 20px !important;
+color: white !important;
+border-bottom: 1px solid white !important;
+}
+
+.dt-search input {
+    width: 75% !important;
+    position: relative !important;
+    bottom: -5px !important;
+    background-color: white !important;
+} 
+
+.dt-search label {
+   display: none !important;
+} 
+
+.iconVisualizacion {
+    color: #5d043f;
+}
+
+.iconVisualizacion:hover{
+    cursor: pointer;
+}
+
+.iconCustomTrash {
+    color: #5d043f;
+}
+
+.iconCustomTrash:hover{
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.iconCustomUpdate {
+    color: #5d043f;
+}
+
+.iconCustomUpdate:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.seleccionDropDownMenu:hover{
+    border: none;
+    background-color: #5d043f;
+    color: #f5e1e2;
+}
+
+.formularioModificarUsuario {
+    margin-bottom: 10%;
+}
+
+#tablaLibros {
+    width: 100% !important;
+}
+
+
+.cartaCatalogo {
+    border: none;
+    background-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.cartaCatalogo:hover {
+    transform: scale(1.05);
+}
+
+.botonLibroCatalogo {
+    visibility: hidden;
+}
+
+.cartaCatalogo:hover .botonLibroCatalogo{
+    visibility: visible;
+}
+
+.cartaContendorImagen {
+    position: relative;
+}
+.vistaPreviaCatalogo {
+    position: absolute;
+    text-align: center;
+    background-color: #5d043f;
+    width: 100%;
+    padding-bottom: 15%;
+    bottom: 0;
+    margin: 0;
+    visibility: hidden;
+    color: white;
+    font-weight: bolder;
+}
+
+.cartaCatalogo:hover .vistaPreviaCatalogo{
+    visibility: visible;
+    opacity: 0.7;
+}
+
+.contenedorCuerpoCarta {
+    padding: 0 !important;
+}
+
+.botonCatalogo {
+    padding: 10% 0 10% 0;
+    background-color: #5d043f;
+    border: 1px solid #5d043f;
+    color: white;
+    border-top: 1px solid white;
+}
+
+.contenedorCartaVistaPreviaIzquierda {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black ;
+    border-left: 1px solid black ;
+    background-color: white;
+}
+
+.contenedorCartaVistaPreviaDerecho {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    background-color: white;
 }

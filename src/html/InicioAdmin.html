@@ -33,12 +33,13 @@
         </li>
         <li class="nav-item dropdown nav-link">
           <i class="bi bi-plus-lg iconCustom" data-bs-toggle="dropdown" aria-expanded="false"></i>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" id="selectNewLibro" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Añadir libro</a></li>
-            <li><a class="dropdown-item" id="selectNewEjemplar" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Añadir Ejemplar</a></li>
-            <li><a class="dropdown-item" id="selectNewGenero" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Añadir Genero</a></li>
-            <li><a class="dropdown-item" id="selectNewAutor" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Añadir Autores</a></li>
-            <li><a class="dropdown-item" id="selectNewEditorial" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Añadir Editoriales</a></li>
+          <ul class="dropdown-menu text-center">
+            <!-- <div class="dropdown-item disabled" aria-disabled="true">Nuevo...</div> -->
+            <li><a class="dropdown-item seleccionDropDownMenu" id="selectNewLibro" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Libro</a></li>
+            <li><a class="dropdown-item seleccionDropDownMenu" id="selectNewEjemplar" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Ejemplar</a></li>
+            <li><a class="dropdown-item seleccionDropDownMenu" id="selectNewGenero" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Genero</a></li>
+            <li><a class="dropdown-item seleccionDropDownMenu" id="selectNewAutor" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Autores</a></li>
+            <li><a class="dropdown-item seleccionDropDownMenu" id="selectNewEditorial" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario">Editoriales</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -47,15 +48,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link">
             <span class="i-eos-icons-admin-outlined"></span>
           </a>
         </li>
         <li class="nav-item dropdown nav-link">
           <i class="bi bi-person-circle iconCustom" data-bs-toggle="dropdown" aria-expanded="false"></i>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" id="perfil">Perfil</a></li>
-            <li><a class="dropdown-item" id="cerrarSesion">Cerrar Sesión</a></li>
+          <ul class="dropdown-menu text-center">
+            <li><a class="dropdown-item seleccionDropDownMenu" id="perfil">Perfil</a></li>
+            <li><a class="dropdown-item seleccionDropDownMenu" id="cerrarSesion">Cerrar Sesión</a></li>
           </ul>
         </li>
       </ul>
@@ -107,7 +108,7 @@
   </div>
   </div>
   <div class="container d-flex align-items-center justify-content-center" id="contenedor">
-    <div class="d-flex justify-content-center" id="tabla-container">
+    <div class="d-flex flex-column justify-content-center" id="tabla-container" style="width: 100%;">
     </div>
   </div>
     

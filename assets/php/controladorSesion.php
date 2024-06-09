@@ -132,7 +132,12 @@ if(isset($_POST['allEjemplares']))
 }
 
 if(isset($_POST['newLibro']) && isset($_POST['newLibrosGeneros']))
-{
+{   
+
+        echo var_dump($_REQUEST['newLibro']);
+        echo var_dump($_REQUEST['newLibrosGeneros']);
+
+
     $insertarLibro = json_decode($_REQUEST['newLibro'], true);
     $insertarLibroGenero = json_decode($_REQUEST['newLibrosGeneros'], true);
     $addLibro = $metodos->transaccionLibro($insertarLibro, $insertarLibroGenero);
@@ -275,4 +280,15 @@ if(isset($_REQUEST['actualizarPaginaPerfil'])) {
     $obtenerUsuarioActualizado = $metodos->obtenerUsuarioActualizado($idUsuarioActualizado);
     echo json_encode($obtenerUsuarioActualizado);  
 }
+
+if(isset($_REQUEST['vaciarStock'])) {
+
+    echo var_dump($_REQUEST['vaciarStock']);    
+    
+    $vaciarStock = json_decode($_REQUEST['vaciarStock'], true);
+
+    $ejemplarNoDisponible = $metodos->actualizarRegistro($vaciarStock, 'ejemplares');
+    echo json_encode($ejemplarNoDisponible);  
+}
+
 ?>

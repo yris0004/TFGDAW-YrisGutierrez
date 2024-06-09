@@ -62,20 +62,22 @@ function tablaLibros() {
                         { data: 'pais_autor', title: 'País' },
                         { data: 'sinopsis', title: 'Sinopsis', orderable: false},
                         { data:'observaciones', title: 'Observaciones', orderable: false},
-                        { 
+                        {   
                             data: null,
+                            title: 'Acciones',
                             orderable: false,
                             render: function(row) {
                                 return `
                                 <div class="d-flex">
-                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_libro}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_libro}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_libro}"><i class="bi bi-trash iconCustomTrash"></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_libro}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square iconCustomUpdate"></i></a>
                                 </div>`
                             }
                         }
                     ]
                 });
-                // $('#tablaLibros').addClass('col table table-hover');
+                $('.dt-start').eq(0).addClass('encabezadoTabla');
+                $('.dt-search input').attr('placeholder', 'Buscador');
                 $('#tablaLibros').on('click','.btn-edit', function() {
                     let idBtnLibros = this.id;
                     let cadena = idBtnLibros.split("_");
@@ -158,14 +160,15 @@ function tablaAutores() {
                             render: function(row) {
                                 return `
                                 <div class="d-flex">
-                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_autor}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_autor}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_autor}"><i class="bi bi-trash iconCustomTrash"></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_autor}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square iconCustomUpdate"></i></a>
                                 </div>`
                             }
                         }
                     ]
                 });
-                // $('#tablaLibros').addClass('col table table-hover');
+                $('.dt-start').eq(0).addClass('encabezadoTabla');
+                $('.dt-search input').attr('placeholder', 'Buscador');                
                 $('#tablaLibros').on('click','.btn-edit', function() {
                     let idBtnAutor = this.id;
                     let cadena = idBtnAutor.split("_");
@@ -240,17 +243,20 @@ function tablaEditoriales() {
                         { data:'observaciones', title: 'Observaciones', orderable: false},
                         { 
                             data: null,
+                            title: 'Acciones',
                             orderable: false,
                             render: function(row) {
                                 return `
                                 <div class="d-flex">
-                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_editorial}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_editorial}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square""></i></a>
+                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_editorial}"><i class="bi bi-trash iconCustomTrash"></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_editorial}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square iconCustomUpdate"></i></a>
                                 </div>`
                             }
                         }
                     ]
                 });
+                $('.dt-start').eq(0).addClass('encabezadoTabla');
+                $('.dt-search input').attr('placeholder', 'Buscador');                
                 $('#tablaLibros').on('click','.btn-edit', function() {
                     let idBtnEditorial = this.id;
                     let cadena = idBtnEditorial.split("_");
@@ -325,17 +331,20 @@ function tablaGeneros() {
                         { data:'observaciones', title: 'Observaciones', orderable: false},
                         { 
                             data: null,
+                            title: 'Acciones',
                             orderable: false,
                             render: function(row) {
                                 return `
                                 <div class="d-flex">
-                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_genero}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_genero}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square""></i></a>
+                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_genero}"><i class="bi bi-trash iconCustomTrash"></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_genero}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square iconCustomUpdate"></i></a>
                                 </div>`
                             }
                         }
                     ]
                 });
+                $('.dt-start').eq(0).addClass('encabezadoTabla');
+                $('.dt-search input').attr('placeholder', 'Buscador');
                 $('#tablaLibros').on('click','.btn-edit', function() {
                     let idBtnGenero = this.id;
                     let cadena = idBtnGenero.split("_");
@@ -423,17 +432,22 @@ function tablaEjemplares() {
                         { data:'observaciones', title: 'Observaciones', orderable: false},
                         { 
                             data: null,
+                            title: 'Acciones',
                             orderable: false,
                             render: function(row) {
                                 return `
                                 <div class="d-flex">
-                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_ejemplar}"><i class="bi bi-trash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_ejemplar}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square""></i></a>
+                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_ejemplar}"><i class="bi bi-trash iconCustomTrash"></i></a>
+                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_ejemplar}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square iconCustomUpdate"></i></a>
+                                    <a class="nav-link btn-noDisponible" id="noDisponible_${row.id_ejemplar}"><i class="bi bi-0-circle iconCustomTrash"></i>
+</a>
                                 </div>`
                             }
                         }
                     ]
                 });
+                $('.dt-start').eq(0).addClass('encabezadoTabla');
+                $('.dt-search input').attr('placeholder', 'Buscador');                
                 $('#tablaLibros').on('click','.btn-edit', function() {
                     let idBtnEjemplar = this.id;
                     let cadena = idBtnEjemplar.split("_");
@@ -443,9 +457,9 @@ function tablaEjemplares() {
                     formEjemplar(datosEjemplar);
                 });
                 $('#tablaLibros').on('click','.btn-remove', function() {
-                    let idBtnEditorial = this.id;
-                    let cadena = idBtnEditorial.split("_");
-                    let idEditorial = parseInt(cadena[1]);
+                    let idBtnEjemplar = this.id;
+                    let cadena = idBtnEjemplar.split("_");
+                    let idEjemplar = parseInt(cadena[1]);
                     swal({
                         title:"¿Estás seguro de eliminar?",
                         text: "Esta acción eliminará permanentemente los registros asociados. ¿Estás seguro de continuar?",
@@ -461,11 +475,37 @@ function tablaEjemplares() {
                           swal("Se ha borrado correctamente", {
                             icon: "success",
                           });
-                          deleteEjemplar(idEditorial);
+                          deleteEjemplar(idEjemplar);
                         } else {
                           swal("Operación cancelada");
                         }
                       });
+                });
+                $('#tablaLibros').on('click','.btn-noDisponible', function() {
+                    let idBtnEjemplar = this.id;
+                    let cadena = idBtnEjemplar.split("_");
+                    let idEjemplar = parseInt(cadena[1]);
+                    console.log(idEjemplar);
+                    swal({
+                        title:"¿Estás seguro de vaciar el stock?",
+                        text: "Este ejemplar dejará de estar disponible para todos los usuarios.",
+                        icon: "warning",
+                        buttons: {
+                            cancel: "Cancelar",
+                            confirm: "Confirmar"
+                        },
+                        dangerMode: true,
+                      })
+                      .then((willDelete) => {
+                        if (willDelete) {
+                          swal("Se ha ha vaciado el stock", {
+                            icon: "success",
+                          });
+                          vaciarStock(idEjemplar);
+                        } else {
+                          swal("Operación cancelada");
+                        }
+                    });
                 });
             } else {
                 console.log('NO OK');
@@ -545,17 +585,20 @@ function tablaUsuarios() {
                         { data:'observaciones', title: 'Observaciones'},
                         { 
                             data: null,
+                            title: 'Visualizar',
                             orderable: false,
                             render: function(row) {
                                 return `
                                 <div class="d-flex">
-                                    <a class="nav-link btn-regsitro" id="btnRegistro_${row.id_usuario}"><i class="bi bi-eye-fill"></i>
+                                    <a class="nav-link btn-regsitro" id="btnRegistro_${row.id_usuario}"><i class="bi bi-eye-fill iconVisualizacion"></i>
                                     </a>
                                 </div>`
                             }
                         }
                     ]
                 });
+                $('.dt-start').eq(0).addClass('encabezadoTabla');
+                $('.dt-search input').attr('placeholder', 'Buscador');                
                 $('#tablaLibros').on('click','.btn-regsitro', function() {
                     let idBtnUsuario = this.id;
                     let cadena = idBtnUsuario.split("_");
@@ -577,7 +620,10 @@ function tablaPrestamosUsuario(datosUsuario) {
     const contenedor = document.querySelector('#tabla-container');
     contenedor.innerHTML = "";
 
+    let contenedorDerecha = crearElemento("div", undefined, {class: "d-flex justify-content-end formularioModificarUsuario"});
     const formulario = crearElemento("form", undefined, {id: "formularioUser"});
+    contenedorDerecha.appendChild(formulario);
+
     let contenedorElemForm;
     let checkedPropiedad;
 
@@ -588,7 +634,7 @@ function tablaPrestamosUsuario(datosUsuario) {
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelEmail = crearElemento("label", 'Email', {for: "inputEmailUsuario"});
-    const inputEmail = crearElemento("input", undefined,{type: "text", id: "inputEmailUsuario"});
+    const inputEmail = crearElemento("input", undefined,{type: "text", id: "inputEmailUsuario", class: "form-control"});
     contenedorElemForm.appendChild(labelEmail);
     contenedorElemForm.appendChild(inputEmail);
 
@@ -598,7 +644,7 @@ function tablaPrestamosUsuario(datosUsuario) {
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelTelefono = crearElemento("label", 'Telefono', {for: "inputTelefonoUsuario"});
-    const inpuTelefono = crearElemento("input", undefined, {type: "text", id: "inputTelefonoUsuario"});
+    const inpuTelefono = crearElemento("input", undefined, {type: "text", id: "inputTelefonoUsuario", class: "form-control"});
     contenedorElemForm.appendChild(labelTelefono);
     contenedorElemForm.appendChild(inpuTelefono);
 
@@ -608,7 +654,7 @@ function tablaPrestamosUsuario(datosUsuario) {
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
     const labelObservaciones = crearElemento("label", 'Observaciones', {for: "inputObservacionesUsuario"});
-    const inputObservaciones = crearElemento("input", undefined, {type: "text", id: "inputObservacionesUsuario"});
+    const inputObservaciones = crearElemento("input", undefined, {type: "text", id: "inputObservacionesUsuario", class: "form-control"});
     contenedorElemForm.appendChild(labelObservaciones);
     contenedorElemForm.appendChild(inputObservaciones);
 
@@ -635,11 +681,11 @@ function tablaPrestamosUsuario(datosUsuario) {
     inputActivo.checked = checkedPropiedad;
 
     contenedorElemForm = crearElemento("div", undefined, {class: "mb-3"});
-    const btnGuardar = crearElemento("input", undefined, {class: "btn btn-primary", value:"Guardar Todo", type:"button"});
+    const btnGuardar = crearElemento("input", undefined, {class: "btn btn-primary botonCustom", value:"Guardar Todo", type:"button"});
     contenedorElemForm.appendChild(btnGuardar);
     formulario.appendChild(contenedorElemForm); 
 
-    contenedor.appendChild(formulario);
+    contenedor.appendChild(contenedorDerecha);
 
     const tabla = crearElemento("table",undefined,{id:"tablaLibros"});
     contenedor.appendChild(tabla);
@@ -683,6 +729,8 @@ function tablaPrestamosUsuario(datosUsuario) {
                         { data:'observaciones', title: 'Observaciones'},
                     ]
                 });
+                $('.dt-start').eq(0).addClass('encabezadoTabla');
+                $('.dt-search input').attr('placeholder', 'Buscador');
             } else {
                 console.log('NO OK');
             }

@@ -249,3 +249,32 @@ function updateUsuarios(idUsuario) {
     })
 
 }
+
+function vaciarStock(idEjemplar) {
+
+    const parametros = {
+        vaciarStock: JSON.stringify ({
+            "id_ejemplar": idEjemplar,
+            "stock": 0,
+        })
+    }
+    $.ajax({
+        type:"POST",
+        url: "../../assets/php/controladorSesion.php",
+        data: parametros,
+        success: function (respuesta) {
+            // respuesta = false;
+            if(respuesta) {
+                console.log(respuesta);
+                tablaEjemplares();
+                // window.location.href = '../html/sesion.html';
+            }
+            else {
+                console.log(respuesta);
+            }
+        },
+        error: function(a,b,errorMsg) {
+            console.log(errorMsg);
+        }
+    })
+}
