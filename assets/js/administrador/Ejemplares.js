@@ -213,7 +213,7 @@ function tablaEjemplares() {
     const contenedor = document.querySelector('#tabla-container');
     contenedor.innerHTML = "";
 
-    const tabla = crearElemento("table",undefined,{id:"tablaEjemplares"});
+    const tabla = crearElemento("table", undefined, { id: "tablaEjemplares", class:"table table-striped responsive"});
     contenedor.appendChild(tabla);
 
     const parametrosLibros = {
@@ -226,22 +226,22 @@ function tablaEjemplares() {
         url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
         type: "POST",
         data: parametrosLibros,
-        success: function(data) {
+        success: function (data) {
             if (data) {
-                console.log('OK');
+                // console.log('OK');
                 const allEjemplares = JSON.parse(data);
-                console.log(allEjemplares);
+                // console.log(allEjemplares);
 
                 // Inicializar DataTables con los datos recibidos
                 $('#tablaEjemplares').DataTable({
                     data: allEjemplares,
                     columns: [
                         { data: 'nombre_libro', title: 'Titulo' },
-                        { 
-                            data: 'portada', 
-                            title: 'Portada', 
+                        {
+                            data: 'portada',
+                            title: 'Portada',
                             orderable: false,
-                            render: function(data, row) {
+                            render: function (data, row) {
                                 return `<img src="../../assets/imagenes/${data}"
                                 alt="${row.nombre_libro}>" style="width:100px; height:auto;">`
                             }
@@ -250,12 +250,12 @@ function tablaEjemplares() {
                         { data: 'num_paginas', title: 'Numero paginas' },
                         { data: 'stock', title: 'Stock' },
 
-                        { data:'observaciones', title: 'Observaciones', orderable: false},
-                        { 
+                        { data: 'observaciones', title: 'Observaciones', orderable: false },
+                        {
                             data: null,
                             title: 'Acciones',
                             orderable: false,
-                            render: function(row) {
+                            render: function (row) {
                                 return `
                                 <div class="d-flex">
                                     <a class="nav-link btn-remove" id="btnRemove_${row.id_ejemplar}"><i class="bi bi-trash iconCustomTrash"></i></a>
@@ -264,11 +264,13 @@ function tablaEjemplares() {
                                 </div>`
                             }
                         }
-                    ]
+                    ],
+                    responsive: true
                 });
-                $('.dt-start').eq(0).addClass('encabezadoTabla');
-                $('.dt-search input').attr('placeholder', 'Buscador');                
-                $('#tablaEjemplares').on('click','.btn-edit', function() {
+
+                // $('.dt-start').eq(0).addClass('encabezadoTabla');
+                $('.dt-search input').attr('placeholder', 'Buscador');
+                $('#tablaEjemplares').on('click', '.btn-edit', function () {
                     let idBtnEjemplar = this.id;
                     let cadena = idBtnEjemplar.split("_");
                     let idEjemplar = parseInt(cadena[1]);
@@ -276,12 +278,12 @@ function tablaEjemplares() {
                     // console.log(datosGenero);
                     formEjemplar(datosEjemplar);
                 });
-                $('#tablaEjemplares').on('click','.btn-remove', function() {
+                $('#tablaEjemplares').on('click', '.btn-remove', function () {
                     let idBtnEjemplar = this.id;
                     let cadena = idBtnEjemplar.split("_");
                     let idEjemplar = parseInt(cadena[1]);
                     swal({
-                        title:"¿Estás seguro de eliminar?",
+                        title: "¿Estás seguro de eliminar?",
                         text: "Esta acción eliminará permanentemente los registros asociados. ¿Estás seguro de continuar?",
                         icon: "warning",
                         buttons: {
@@ -289,25 +291,25 @@ function tablaEjemplares() {
                             confirm: "Confirmar"
                         },
                         dangerMode: true,
-                      })
-                      .then((willDelete) => {
-                        if (willDelete) {
-                          swal("Se ha borrado correctamente", {
-                            icon: "success",
-                          });
-                          deleteEjemplar(idEjemplar);
-                        } else {
-                          swal("Operación cancelada");
-                        }
-                      });
+                    })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                swal("Se ha borrado correctamente", {
+                                    icon: "success",
+                                });
+                                deleteEjemplar(idEjemplar);
+                            } else {
+                                swal("Operación cancelada");
+                            }
+                        });
                 });
-                $('#tablaEjemplares').on('click','.btn-noDisponible', function() {
+                $('#tablaEjemplares').on('click', '.btn-noDisponible', function () {
                     let idBtnEjemplar = this.id;
                     let cadena = idBtnEjemplar.split("_");
                     let idEjemplar = parseInt(cadena[1]);
                     console.log(idEjemplar);
                     swal({
-                        title:"¿Estás seguro de vaciar el stock?",
+                        title: "¿Estás seguro de vaciar el stock?",
                         text: "Este ejemplar dejará de estar disponible para todos los usuarios.",
                         icon: "warning",
                         buttons: {
@@ -315,23 +317,23 @@ function tablaEjemplares() {
                             confirm: "Confirmar"
                         },
                         dangerMode: true,
-                      })
-                      .then((willDelete) => {
-                        if (willDelete) {
-                          swal("Se ha ha vaciado el stock", {
-                            icon: "success",
-                          });
-                          vaciarStock(idEjemplar);
-                        } else {
-                          swal("Operación cancelada");
-                        }
-                    });
+                    })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                swal("Se ha ha vaciado el stock", {
+                                    icon: "success",
+                                });
+                                vaciarStock(idEjemplar);
+                            } else {
+                                swal("Operación cancelada");
+                            }
+                        });
                 });
             } else {
                 console.log('NO OK');
             }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             console.error("Error en la solicitud AJAX: " + textStatus, errorThrown);
         }
     });
@@ -341,48 +343,11 @@ function tablaEjemplares() {
 function vaciarStock(idEjemplar) {
 
     const parametros = {
-        vaciarStock: JSON.stringify ({
+        vaciarStock: JSON.stringify({
             "id_ejemplar": idEjemplar,
             "stock": 0,
         })
     }
-    $.ajax({
-        type:"POST",
-        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
-        data: parametros,
-        success: function (respuesta) {
-            // respuesta = false;
-            if(respuesta) {
-                console.log(respuesta);
-                tablaEjemplares();
-                // window.location.href = '../html/sesion.html';
-            }
-            else {
-                console.log(respuesta);
-            }
-        },
-        error: function(a,b,errorMsg) {
-            console.log(errorMsg);
-        }
-    })
-}
-
-//Ajax para añadir un nuevo ejemplar 
-function crearNewEjemplar(selectedLibro, selectedEditorial) {
-    const numPaginas = document.querySelector("#inputnumPaginas").value;
-    const stock = document.querySelector("#inputstock").value;
-    const observacionesEjemplar = document.querySelector("#inputObservacionesEjemplar").value;
-
-    const parametros = {
-        newEjemplar: JSON.stringify({
-            "num_paginas": numPaginas,
-            "fk_editorial": selectedEditorial,
-            "fk_libro": selectedLibro,
-            "stock": stock,
-            "observaciones": observacionesEjemplar
-        })
-    }
-    console.log(parametros);
     $.ajax({
         type: "POST",
         url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
@@ -391,6 +356,47 @@ function crearNewEjemplar(selectedLibro, selectedEditorial) {
             // respuesta = false;
             if (respuesta) {
                 console.log(respuesta);
+                tablaEjemplares();
+                // window.location.href = '../html/sesion.html';
+            }
+            else {
+                console.log(respuesta);
+            }
+        },
+        error: function (a, b, errorMsg) {
+            console.log(errorMsg);
+        }
+    })
+}
+
+//Ajax para añadir un nuevo ejemplar 
+function crearNewEjemplar(selectedLibro, selectedEditorial) {
+
+    const nombrePortada = crearNewPortada();  
+    console.log(nombrePortada);
+
+    const numPaginas = document.querySelector("#inputnumPaginas").value;
+    const stock = document.querySelector("#inputstock").value;
+    const observacionesEjemplar = document.querySelector("#inputObservacionesEjemplar").value;
+
+    const parametros = {
+        newEjemplar: JSON.stringify({
+            "portada": nombrePortada,
+            "num_paginas": numPaginas,
+            "fk_editorial": selectedEditorial,
+            "fk_libro": selectedLibro,
+            "stock": stock,
+            "observaciones": observacionesEjemplar
+        })
+    }
+    // console.log(parametros);
+    $.ajax({
+        type: "POST",
+        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
+        data: parametros,
+        success: function (respuesta) {
+            // respuesta = false;
+            if (respuesta) {
                 tablaEjemplares();
                 document.querySelector("#inputnumPaginas").value = "";
                 document.querySelector("#inputstock").value = "";
@@ -411,34 +417,32 @@ function crearNewEjemplar(selectedLibro, selectedEditorial) {
 function crearNewPortada() {
     const portadaEjemplar = document.querySelector('#portadaEjemplar');
 
-    // console.log(portadaEjemplar);
+    // Se comprueba que existe una portada 
     if (portadaEjemplar.files && portadaEjemplar.files[0]) {
+
         const formData = new FormData();
-    
-        // console.log('Archivo seleccionado:', portadaEjemplar.files[0]); 
-         formData.append('portadaEjemplar', portadaEjemplar.files[0]);
-        console.log(formData)
-        parametros = {
-         newPortada: JSON.stringify ({
-            'portada': formData
-        }) 
-        }
-        console.log(parametros);
+        const archivo = portadaEjemplar.files[0];
+        formData.append('portadaEjemplar', archivo);
 
         $.ajax({
-            type:"POST",
-            url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
-            data: parametros,
+            type: "POST",
+            url: "../../assets/php/controladores/controladorEjemplar/controladorPortada.php",
+            data: formData,
+            dataType: 'json',
+            contentType: false, // No establecer contentType para FormData
+            processData: false, // No procesar FormData
             success: function (respuesta) {
-                // respuesta = false;
-                if(respuesta) {
+                console.log(respuesta);
+                if (respuesta) {
+                    console.log(respuesta);
                     console.log('Se ha subido la imagen');
+                    return respuesta;
                 }
                 else {
                     console.log(respuesta);
                 }
             },
-            error: function(a,b,errorMsg) {
+            error: function (a, b, errorMsg) {
                 console.log(errorMsg);
             }
         })
@@ -447,20 +451,20 @@ function crearNewPortada() {
 
 //Ajax para eliminar un ejemplar
 function deleteEjemplar(idEjemplar) {
-    
+
     parametros = {
-        deleteEjemplar : JSON.stringify ({
+        deleteEjemplar: JSON.stringify({
             'id_ejemplar': idEjemplar
         })
     }
 
     $.ajax({
-        type:"POST",
+        type: "POST",
         url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
         data: parametros,
         success: function (respuesta) {
             // respuesta = false;
-            if(respuesta) {
+            if (respuesta) {
                 tablaEjemplares();
                 console.log(respuesta);
             }
@@ -468,7 +472,7 @@ function deleteEjemplar(idEjemplar) {
                 console.log(respuesta);
             }
         },
-        error: function(a,b,errorMsg) {
+        error: function (a, b, errorMsg) {
             console.log(errorMsg);
         }
     })

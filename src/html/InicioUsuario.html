@@ -16,35 +16,51 @@
 </head>
 <body id="fondo">
   <header id="headerCustom">
-    <div class="d-flex justify-content-around align-items-center">
-          <img class="ms-5 img-fluid" id="iconLogotipo" src="../../assets/imagenes/logotipoFondo.png" alt="logotipo">
-        <h1>Biblioteca</h1>
-        <ul class="nav listaHeader">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-house iconCustom" id="home"></i>
+    <div class="row">
+      <div class="col-3 d-flex justify-content-center">
+        <img class="ms-5 img-fluid" id="iconLogotipo" src="assets/imagenes/logotipoFondo.png" alt="logotipo">
+      </div>
+      <div class="col-5 d-flex justify-content-start">
+        <h1 class="tituloWeb">LiberLibro</h1>
+      </div>
+      <div class="col-4 d-flex justify-content-start">
+        <div class="col-2 d-flex justify-content-center">
+          <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
+            <a href="../../index.html">
+              <img class="w-100 iconoHeader pb-2" src="../../assets/imagenes/iconos/home.png" alt="catalogo">
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-book iconCustom"></i>
-            </a>
-          </li>
-          <li class="nav-item me-5">
-            <a class="nav-link" id="iconoCarrito">
-              <i class="bi bi-cart-check iconCustom" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
-            </a>
-          </li>
-          <li class="nav-item dropdown nav-link">
-                  <i class="bi bi-person-circle iconCustom"  data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Perfil</a></li>
-                  <li><a class="dropdown-item" id="cerrarSesion">Cerrar Sesión</a></li>
-                </ul>
-          </li>
-      </ul>
+          </div>
+        <div class="col-2 d-flex justify-content-center">
+        <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
+          <a>
+            <img class="w-100 iconoHeader pb-2" src="../../assets/imagenes/iconos/IconoCatalogo.png" alt="catalogo" id="iconoCatalogo">
+          </a>
+        </li>
+        </div>
+        <div class="col-2 d-flex justify-content-center">
+          <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
+          <a>
+            <img class="w-100 iconoHeader pb-2" src="../../assets/imagenes/iconos/carrito.png" alt="catalogo" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="iconoCarrito">
+          </a>
+        </li>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+          <li class="nav-item dropdown nav-link d-flex justify-content-center align-items-center contenedorIconos">
+          <a>
+            <img class="w-100 iconoHeader pb-2" src="../../assets/imagenes/iconos/usuario.png" alt="usuario" data-bs-toggle="dropdown" aria-expanded="false">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" id="cargarPerfilUsuario">Perfil</a></li>
+              <li><a class="dropdown-item" id="cerrarSesion">Cerrar Sesión</a></li>
+            </ul>
+          </a>
+        </li>
+      </div>
+        </ul>
+      </div>
     </div>
   </header>
+
   <h1>Inicion sesion usuario</h1>
     <form>
         <button class="btn btn-danger" id="cerrarSesion">Cerrar Sesion</button>

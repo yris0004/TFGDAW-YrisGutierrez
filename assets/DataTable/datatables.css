@@ -86,6 +86,7 @@
    bottom: 50%;
    content: "▲";
    content: "▲"/"";
+   color: #5d043f;
  }
  table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after, table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
  table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
@@ -95,6 +96,7 @@
    top: 50%;
    content: "▼";
    content: "▼"/"";
+   color: #5d043f;
  }
  table.dataTable thead > tr > th.dt-orderable-asc, table.dataTable thead > tr > th.dt-orderable-desc, table.dataTable thead > tr > th.dt-ordering-asc, table.dataTable thead > tr > th.dt-ordering-desc,
  table.dataTable thead > tr > td.dt-orderable-asc,
@@ -280,6 +282,7 @@
  table.dataTable tfoot th,
  table.dataTable tfoot td {
    text-align: left;
+   color:#5d043f;
  }
  table.dataTable thead th.dt-head-left,
  table.dataTable thead td.dt-head-left,

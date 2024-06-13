@@ -10,7 +10,7 @@ let carrito = JSON.parse(localStorage.getItem('carritoLibros')) || [];
 
 function principal() {
     document.querySelector("#cerrarSesion").addEventListener("click", cerrarSesion);
-    document.querySelector("#home").addEventListener("click", volverInicio);
+    document.querySelector("#iconoCatalogo").addEventListener("click", volverInicio);
     document.querySelector('#iconoCarrito').addEventListener("click", imprimirCarrito);
     document.querySelector("#solicitarPrestamo").addEventListener("click", realizarPrestamo);
 

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="DiagramaDeGrantt" company="" webLink="http://" view-date="2024-04-30" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.6" locale="es">
+    <description><![CDATA[Diagrama de especificación de la planificación ]]></description>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="167" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="65" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="64" order="2"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="210" order="0"/>
+        <field id="1" name="Función" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="1" name="Definir parte inicial del proyecto" color="#cc3300" meeting="false" start="2024-05-01" duration="2" complete="100" thirdDate="2024-05-01" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Documentar las necesidades de los clientes.
+
+Identificar las funciones que debe realizar la aplicación:
+
+-Gestión de usuarios
+-Buscador y catálogo de ejemplares
+-Gestión de stock de libros
+-Control de inicio de sesión, tanto administrador como usuario
+-Gestión de editoriales de libros
+-Gestión de libros 
+-Gestión de autores de libros
+ 
+
+
+
+]]></notes>
+        </task>
+        <task id="3" name="Definición de la estructura de proyecto" color="#cc3300" meeting="false" start="2024-05-01" duration="4" complete="100" thirdDate="2024-05-01" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Para llevar a cabo el proyecto de manera eficiente, se ha utilizado un diagrama de Gantt para dividir el trabajo en tareas manejables y establecer pequeños objetivos. Este enfoque permite determinar las tareas más importantes y organizar cuáles dependen de otras. De este modo, se asegura una ejecución estructurada y metódica del proyecto, facilitando el seguimiento del progreso y la gestión de los tiempos.
+
+En la Fase 1, se ha centrado en la planificación y la estructuración del proyecto, así como en la creación de un cronograma de actividades con el diagrama de Gantt. En la Fase 2, se ha abordado el diseño de la base de datos, considerado de alta importancia, junto con el diseño de la arquitectura del sistema (MVC), también muy relevante, y el diseño de la interfaz de usuario, que se ha identificado como menos crítico a corto plazo. La Fase 3 ha involucrado la creación de las páginas necesarias para los casos de uso de la biblioteca, como la búsqueda de libros, los detalles de los libros, la funcionalidad del carrito, el perfil de usuario y la página de inicio.
+
+En la Fase 4, se han desarrollado los controladores para los casos de uso previamente mencionados y las funciones del administrador. La Fase 5 ha consistido en realizar pruebas exhaustivas para asegurar que todo funcione correctamente. Posteriormente, en la Fase 6, se ha llevado a cabo el despliegue de la aplicación. Finalmente, la Fase 7 se ha dedicado a la documentación completa del producto. Este cronograma estructurado ha permitido estimar la duración de cada tarea y asegurarse de que el proyecto se desarrolle de manera organizada y eficiente.
+
+
+]]></notes>
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="5" name="Diseño Entidad-Relación de la base de datos" color="#0066cc" meeting="false" start="2024-05-07" duration="3" complete="100" thirdDate="2024-05-07" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Diseñar la Base de datos:
+Planificar tablas necesarias que requiere nuestra base de datos
+Planificar las diferentes relaciones entre tablas
+Comprobar su correcto funcionamiento mediante consultas de prueba]]></notes>
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="Diseño del ModeloVistaControlador" color="#ffff33" meeting="false" start="2024-05-10" duration="1" complete="100" thirdDate="2024-05-10" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se ha desarrollado el Modelo Vista Controlador de tal modo que la organización de archivos y carpetas sea ordenada y legible.]]></notes>
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" name="Conexión a la base de datos y creación del SQLL" color="#ffff00" meeting="false" start="2024-05-13" duration="2" complete="100" thirdDate="2024-05-13" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se crean los archivos php necesarios para establecer la conexión con la base de datos: BD.php y ConexionBD.php]]></notes>
+            <depend id="27" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" name="Desarrollo del FrontEnd" color="#ff6600" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2024-05-16" duration="15" complete="90" thirdDate="2024-05-16" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Visualización inicial de la página de usuarios junto con funciones de imprimir elementos desde el js.
+Se usa JQuery para las peticiones al servidor. ]]></notes>
+            <depend id="23" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="13" name="JQuerys" color="#ff6600" meeting="false" start="2024-05-20" duration="9" complete="100" thirdDate="2024-05-20" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se hacen peticiones al servidor para obtener el usuario o insertar un nuevo usuario en caso de que se registre. ]]></notes>
+        </task>
+        <task id="15" name="Descargas de recursos" color="#ff6600" meeting="false" start="2024-05-20" duration="2" complete="100" thirdDate="2024-05-20" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se añaden enlaces de Bootsrap, DataTable e imagenes a la carpeta de imagenes para poder realizar pruebas. Además de crear el logotipo y escoger los colores definitivos de la web]]></notes>
+            <depend id="17" type="2" difference="0" hardness="Strong"/>
+            <depend id="29" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="17" name="Funciones de visualización" color="#ff6600" meeting="false" start="2024-05-22" duration="8" complete="100" thirdDate="2024-05-22" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se crean funciones desde el js para que se visualicen los datos en la página, como formularios, modales o menús laterales. 
+]]></notes>
+        </task>
+        <task id="19" name="Desarrollo del BackEnd" color="#003399" meeting="false" start="2024-05-15" duration="16" complete="95" thirdDate="2024-05-15" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se crean los controladores necesarios y las funciones con las consultas que se van a realizar a la base de datos.]]></notes>
+            <depend id="23" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="23" name="Documentacion del TFG" color="#999999" shape="1,0,1,0,0,1,0,1,1,0,1,0,0,1,0,1" meeting="false" start="2024-06-06" duration="10" complete="100" thirdDate="2024-06-06" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Documentacion del TFG-Yris]]></notes>
+        </task>
+        <task id="43" name="Desarrollo de controladores php" color="#003399" meeting="false" start="2024-06-06" duration="10" complete="100" thirdDate="2024-06-06" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se desarrollan detalladamente los controladores usados ]]></notes>
+        </task>
+        <task id="25" name="Funciones de administrador" color="#ffff33" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2024-05-24" duration="8" complete="100" thirdDate="2024-05-24" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Funciones de administrador:
+
+Se pueden eliminar libros
+Configurar stock para poder decidir si un ejemplar está disponible o no.
+Modificar datos de usuarios y si son administradores o si están activos. 
+]]></notes>
+            <depend id="23" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="27" name="Funciones de usuario" color="#ffff33" meeting="false" start="2024-05-15" duration="7" complete="100" thirdDate="2024-05-15" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se crea correctamente todas las funciones correspondientes al InicioUsuario.js, como el almacenamiento de la cesta en el localstorage]]></notes>
+            <depend id="25" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="29" name="Estilos de la aplicación" color="#0099ff" meeting="false" start="2024-05-22" duration="8" complete="0" thirdDate="2024-05-22" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se desarrolla el css y modifican los estilos conforme se va a avanzando en el proyecto.]]></notes>
+        </task>
+        <task id="31" name="Creacion de páginas html" color="#ff6600" meeting="false" start="2024-05-16" duration="2" complete="100" thirdDate="2024-05-16" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Se establece la estrucutra básica de los html como el footer o el encabezado]]></notes>
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+            <depend id="15" type="2" difference="0" hardness="Strong"/>
+            <depend id="17" type="2" difference="0" hardness="Strong"/>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>

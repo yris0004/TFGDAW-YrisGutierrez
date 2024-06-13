@@ -35,17 +35,6 @@ if(isset($_POST['newEjemplar']))
     echo json_encode($addEjemplar);
 }
 
-//Controlador agregar una portada a un ejemplar
-if(isset($_FILES['portadaEjemplar'])) {
-
-    // echo var_dump($_REQUEST['portadaEjemplar']);
-    // $portada = json_decode($_REQUEST['portadaEjemplar'], true);
-    // echo var_dump($_REQUEST['portadaEjemplar']);
-
-    // $prestamos = $metodos->prestamosUsuarios($idUsuario);
-    // echo json_encode($prestamos);
-}
-
 //Controlador eliminar ejemplar
 if(isset($_REQUEST['deleteEjemplar'])) {
     
