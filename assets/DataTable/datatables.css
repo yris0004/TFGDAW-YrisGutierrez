@@ -86,7 +86,7 @@
    bottom: 50%;
    content: "▲";
    content: "▲"/"";
-   color: #5d043f;
+   color: white;
  }
  table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after, table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
  table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
@@ -96,7 +96,7 @@
    top: 50%;
    content: "▼";
    content: "▼"/"";
-   color: #5d043f;
+   color: white;
  }
  table.dataTable thead > tr > th.dt-orderable-asc, table.dataTable thead > tr > th.dt-orderable-desc, table.dataTable thead > tr > th.dt-ordering-asc, table.dataTable thead > tr > th.dt-ordering-desc,
  table.dataTable thead > tr > td.dt-orderable-asc,
@@ -567,16 +567,11 @@
    margin-left: 3px;
  }
 
- /* div.dt-container .dt-search input:focus{
-  border: 1px solid pink;
-  background-color: blue;
- }
-
  div.dt-container .dt-search input:focus-visible{
-  border: 1px solid pink;
-  background-color: blue;
- } */
-
+  border: 1px solid #5d043f;
+  color:#5d043f;
+  outline:none;
+ } 
 
  div.dt-container .dt-input {
    border: 1px solid #aaa;
@@ -587,6 +582,7 @@
  }
  div.dt-container select.dt-input {
    padding: 4px;
+   background-color: white;
  }
  div.dt-container .dt-paging .dt-paging-button {
    box-sizing: border-box;

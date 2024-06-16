@@ -14,7 +14,6 @@ function registroUsuario(e) {
     const emailRegistro = document.querySelector("#emailRegistro").value;
     const passwordRegistro = document.querySelector("#passwordRegistro").value;
     const telefonoRegistro = document.querySelector("#telefonoRegistro").value;
-    const comentarioRegistro = document.querySelector("#comentarioRegistro").value;
 
     //Se activa la cuenta por defecto una vez creada 
     const parametros = {
@@ -26,7 +25,6 @@ function registroUsuario(e) {
             'email': emailRegistro,
             'password': passwordRegistro,
             'activo': 1,
-            'observaciones': comentarioRegistro,
             'telefono': telefonoRegistro
         })
     }; 

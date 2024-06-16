@@ -21,10 +21,19 @@ function crearElemento(etiqueta, contenido, atributos) {
 
 //Imprime todos los usuarios exceptuando al usuario que ha iniciado sesión
 function tablaUsuarios() {
+
     const contenedor = document.querySelector('#tabla-container');
     contenedor.innerHTML = "";
 
-    const tabla = crearElemento("table",undefined,{id:"tablaLibros"});
+    //Se añade el titulo de la gestión
+    const nombreGestion = document.querySelector('#nombreGestion');
+    nombreGestion.innerHTML = "Gestión de usuarios";
+
+    //Se borra el botón de nuevo usuario
+    const encabezadoTablaBoton = document.querySelector('#botonAddGestion');
+    encabezadoTablaBoton.innerHTML = ""; 
+
+    const tabla = crearElemento("table",undefined,{id:"tablaUsuarios", class:"table table-striped responsive"});
     contenedor.appendChild(tabla);
 
     const userInicioSesion = localStorage.getItem('usuarioSesion');
@@ -53,7 +62,7 @@ function tablaUsuarios() {
                 }
                 console.log(allUsuarios);
                 // Inicializar DataTables con los datos recibidos
-                $('#tablaLibros').DataTable({
+                $('#tablaUsuarios').DataTable({
                     data: allUsuarios,
                     columns: [
                         { data: 'nombre_usuario', title: 'Nombre Usuario' },
@@ -100,9 +109,8 @@ function tablaUsuarios() {
                         }
                     ]
                 });
-                $('.dt-start').eq(0).addClass('encabezadoTabla');
                 $('.dt-search input').attr('placeholder', 'Buscador');                
-                $('#tablaLibros').on('click','.btn-regsitro', function() {
+                $('#tablaUsuarios').on('click','.btn-regsitro', function() {
                     let idBtnUsuario = this.id;
                     let cadena = idBtnUsuario.split("_");
                     let idUsuario = parseInt(cadena[1]);

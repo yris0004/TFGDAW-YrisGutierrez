@@ -28,7 +28,7 @@ if(isset($_POST['allEjemplares']))
 //Controlador agregar un nuevo ejemplar
 if(isset($_POST['newEjemplar'])) 
 {   
-    //echo var_dump($_REQUEST['newEditorial']);
+    // echo var_dump($_POST['newEjemplar']);
     $insertarEjemplar = json_decode($_REQUEST['newEjemplar'], true);
     // echo var_dump($insertarUsuario);
     $addEjemplar = $metodos->insertarRegistro('ejemplares', $insertarEjemplar);

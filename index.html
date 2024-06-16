@@ -17,191 +17,203 @@
 
 <body id="fondo">
   <header id="headerCustom">
-    <div class="row">
+    <div class="row eliminarGutter g-0">
       <div class="col-3 d-flex justify-content-center">
         <img class="ms-5 img-fluid" id="iconLogotipo" src="assets/imagenes/logotipoFondo.png" alt="logotipo">
       </div>
       <div class="col-5 d-flex justify-content-start">
-        <h1 class="tituloWeb">LiberLibro</h1>
+        <!-- <h1 class="tituloWeb">LiberLibro</h1> -->
       </div>
       <div class="col-4 d-flex justify-content-start">
         <div class="col-2 d-flex justify-content-center">
-          <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
-            <a href="index.html">
-              <img class="w-100 iconoHeader pb-2" src="assets/imagenes/iconos/home.png" alt="catalogo">
+          <li class="pt-4 nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
+            <a href="index.html" class="iconoHeader">
+              <img class="w-100 mb-2" src="assets/imagenes/iconos/homeIndex.png" alt="catalogo" id="iconoHome">
             </a>
           </li>
-          </div>
-        <div class="col-2 d-flex justify-content-center">
-        <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
-          <a>
-            <img class="w-100 iconoHeader pb-2" src="assets/imagenes/iconos/IconoCatalogo.png" alt="catalogo" id="iconoCatalogo">
-          </a>
-        </li>
         </div>
         <div class="col-2 d-flex justify-content-center">
-          <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
-          <a href="src/html/sesion.html">
-            <img class="w-100 iconoHeader pb-2" src="assets/imagenes/iconos/carrito.png" alt="catalogo">
-          </a>
-        </li>
+          <li class="pt-4 nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
+            <a class="iconoHeader">
+              <img class="w-100 mb-2" src="assets/imagenes/iconos/catalogoIndex.png" alt="catalogo" id="iconoCatalogo">
+            </a>
+          </li>
+        </div>
+        <div class="col-2 d-flex justify-content-center">
+          <li class="pt-4 nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
+            <a class="iconoHeader" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">
+              <img class="w-100 mb-2" src="assets/imagenes/iconos/carritoIndex.png" alt="catalogo" id="iconoCesta">
+            </a>
+          </li>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
-          <a href="src/html/sesion.html">
-            <img class="w-100 iconoHeader pb-2" src="assets/imagenes/iconos/usuario.png" alt="catalogo">
-          </a>
-        </li>
-      </div>
+          <li class="pt-4 nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
+            <a class="iconoHeader">
+              <img class="w-100 mb-2" src="assets/imagenes/iconos/usuarioIndex.png" alt="catalogo" id="iconoUsuario">
+            </a>
+          </li>
+        </div>
         </ul>
       </div>
     </div>
   </header>
 
   <div class="contenedorVideo">
-    <video class="img-fluid w-100" autoplay muted loop playsinline>
-      <source src="./assets/videos/Row-wallpaper-animado-sasori-cosmere-es-v2.mp4" type="video/mp4">
-    </video>
+    <img src="./assets/imagenes/fondoInicio.png" alt="fondoIndex" class="img-fluid w-100 ">
+    <div class="contenidoFondoColor"></div>
     <div class="contenedorBienvenida">
       <h1 class="tituloBienvenida">BIENVENIDO A NUESTRA BIBLIOTECA VIRTUAL</h1>
-      <div class="contenedorBotonInicioSesion">
-        <a href="./src/html/sesion.html">
-          <input type="button" value="Iniciar Sesión" class="botonInicarSesionBienvenida">
-        </a>
-      </div>
+      <p>Registrate si no tienes una cuenta</p>
+      <a class="botonComenzar">Get Started <span class="contenedorSVGBotonInicio">
+          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+              fill="currentColor"></path>
+          </svg></span> </a>
     </div>
   </div>
 
-  <h2>Acerca sobre nosotros</h2>
-  <div class="mt-4">
-    <div class="row border border-danger contenedorInfoWeb" data-aos="fade-up" data-aos-duration="1000">
-      <div class="col-8 d-flex flex-column justify-content-center align-items-center">
-        <h3>Misión</h3>
+  <div class="d-flex justify-content-center segundosTitulos">Acerca sobre nosotros</div>
+  <div class="d-flex justify-content-center tercerosTitulos">
+    <h3>Nuestro Compromiso con la Innovación y lo que Depara el Futuro</h3>
+  </div>
+  <div class="row contenedorInfoWeb w-100" data-aos="fade-up" data-aos-duration="1000">
+    <div class="col-2">
+    </div>
+    <div class="col-6 d-flex flex-column flex-column justify-content-center">
+      <div class="d-flex flex-column justify-content-start align-items-start contenedorTitulosAcercaDeNosotros">
+        <h1 class="align-self-start">Misión</h1>
+      </div>
+      <div
+        class="col-8 d-flex flex-column justify-content-center align-items-center w-100 contenedorTextoAcercaDeNosotros">
         <p>Nuestra misión consiste en desarrollar plataformas web que faciliten la gestión y administración de tareas
           esenciales en diversos campos laborales mediante la transformación digital.
           La plataforma que se ha desarrollado
           a lo largo de este proyecto no solo representa una solución funcional para la gestión y administración de
           tareas, sino que también actúa como un prototipo de las soluciones web
-          que planeamos ofrecer en el futuro. </p>
-      </div>
-      <div class="col-4 d-flex justify-content-center align-items-center">
-        <img src="./assets/imagenes/iconos/mision.png" alt="mision" class="iconoImagenesIndex">
+          que planeamos ofrecer en el futuro.
+        </p>
       </div>
     </div>
-    <div class="row border border-danger contenedorInfoWebGris" data-aos="fade-up" data-aos-duration="1000">
-      <div class="col-4 d-flex justify-content-center align-items-center">
-        <img src="./assets/imagenes/iconos/vision.png" alt="mision" class="iconoImagenesIndex">
+    <div class="col-4 d-flex justify-content-center align-items-center">
+      <img src="./assets/imagenes/iconos/mision.png" alt="mision" class="iconoImagenesIndex">
+    </div>
+  </div>
+  <div class="row contenedorInfoWebGris w-100" data-aos="fade-up" data-aos-duration="1000">
+    <div class="col-4 d-flex justify-content-center align-items-center">
+      <img src="./assets/imagenes/iconos/vision.png" alt="mision" class="iconoImagenesIndex">
+    </div>
+    <div class="col-6 d-flex flex-column flex-column justify-content-center">
+      <div class="d-flex flex-column justify-content-end align-items-end contenedorTitulosAcercaDeNosotros">
+        <h1 class="align-self-end">Visión</h1>
       </div>
-      <div class="col-8 d-flex flex-column justify-content-center align-items-center">
-        <h3>Visión</h3>
+      <div
+        class="col-8 d-flex flex-column justify-content-center align-items-center w-100 contenedorTextoAcercaDeNosotros">
         <p>Nuestra visión es aspirar a ser reconocidos como líderes en la integración de tecnología en las tareas más
-          cotidianas y tediosas, modernizando sectores como la lectura sin dejar de lado lo más tradicional, los libros
-          físicos. </p>
+          cotidianas y tediosas, modernizando sectores como la lectura sin dejar de lado lo más tradicional, los
+          libros físicos.
+          Nos esforzamos por ser pioneros en la aplicación de soluciones innovadoras que simplifiquen y optimicen la
+          gestión de tareas esenciales en diversos ámbitos laborales,
+          promoviendo así una mayor productividad y comodidad para nuestros clientes.
+        </p>
       </div>
+      <div class="col-2"></div>
     </div>
-    <div class="row border border-danger contenedorInfoWeb" data-aos="fade-up" data-aos-duration="1000">
-      <div class="col-8 d-flex flex-column justify-content-center align-items-center">
-        <h3>Valores</h3>
-        <p>Nuestros valores fundamentales constituyen la base sólida sobre la cual se construyen todas nuestras
-          actividades. Impulsados por un compromiso inquebrantable con la mejora continua, adoptamos de manera constante
-          las tecnologías más avanzadas para ofrecer soluciones prácticas y eficientes a desafíos cotidianos, como la
-          búsqueda de libros en bibliotecas. Nuestra misión se alimenta del convencimiento de que el derecho al
-          conocimiento debe ser universal. En este sentido, nos dedicamos a modernizar el acceso a la información, sin
-          pretender en ningún momento sustituir la riqueza y el valor de los libros físicos.</p>
+    <div class="row contenedorInfoWeb w-100" data-aos="fade-up" data-aos-duration="1000">
+      <div class="col-2">
+      </div>
+      <div class="col-6 d-flex flex-column flex-column justify-content-center">
+        <div class="d-flex flex-column justify-content-start align-items-start contenedorTitulosAcercaDeNosotros">
+          <h1 class="align-self-start">Valores</h1>
+        </div>
+        <div
+          class="col-8 d-flex flex-column justify-content-center align-items-center w-100 contenedorTextoAcercaDeNosotros">
+          <p>Nuestros valores fundamentales constituyen la base sólida sobre la cual se construyen todas nuestras
+            actividades. Impulsados por un compromiso inquebrantable con la mejora continua, adoptamos de manera
+            constante
+            las tecnologías más avanzadas para ofrecer soluciones prácticas y eficientes a desafíos cotidianos, como la
+            búsqueda de libros en bibliotecas. Nuestra misión se alimenta del convencimiento de que el derecho al
+            conocimiento debe ser universal. En este sentido, nos dedicamos a modernizar el acceso a la información, sin
+            pretender en ningún momento sustituir la riqueza y el valor de los libros físicos.
+          </p>
+        </div>
       </div>
       <div class="col-4 d-flex justify-content-center align-items-center">
         <img src="./assets/imagenes/iconos/valores.png" alt="mision" class="iconoImagenesIndex">
       </div>
     </div>
   </div>
-  </div>
-  </div>
 
-  <h3>Objetivos de desarrollo sostenible</h3>
+  <div class="d-flex justify-content-center segundosTitulos">Objetivos de Desarrollo Sostenible</div>
+  <div class="d-flex justify-content-center tercerosTitulos">
+    <h3>Educación Verde para un Futuro Brillante
+    </h3>
+  </div>
   <div class="container mt-4">
-    <div class="row border border-primary">
-      <div class="col-6 d-flex flex-column align-items-start" data-aos="fade-right" data-aos-duration="1000"
-        data-aos-delay="200">
-        <h1>Sostenibilidad ambiental</h1>
-        <div>
-          <p>Favorecemos a una educación de calidad con la pretensión de
-            proporcionar igualdad de acceso a la información,
-            eliminando las disparidades de género y riqueza que puede haber en algunos países o incluso, en el nuestro.
-            Porque cuando las personas pueden obtener una
-            educación de calidad es posible romper el ciclo de la pobreza.</p>
-        </div>
-      </div>
-      <div class="col-6 d-flex flex-column align-items-end" data-aos="fade-left" data-aos-duration="1000"
-        data-aos-delay="200">
-        <h1>Educación de calidad</h1>
-        <div class="row">
-          <p>La pérdida de los bosques implica la desaparición de
-            algunos medios de subsistencia sobre todo en las comunidades rurales,
-            el deterioro de la biodiversidad, la degradación del suelo y el aumento de las emisiones de carbono.
-            Así que estamos a favor de la reducción de la deforestación por bienes no esenciales.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="d-flex justify-content-center border border-primary">
-      <div id="carouselExampleInterval" class="carousel slide w-100" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="100000">
-            <div class="card">
-              <div class="card-body">
-                <img src="./assets/imagenes/ElCaminoDeLosReyesEdicion1.jpg" class="d-block" alt="LibroTendencia">
-              </div>
+    <div class="row contenedorODS">
+      <div class="col-sm-12 col-md-6">
+        <div class="contenedorCartaODS" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"
+          id="educacion">
+          <div class="contenedorImagenODS">
+            <img src="./assets/imagenes/iconos/ODSEducacion.png" alt="ODSEducacion">
+          </div>
+          <div class="contenedorCarta">
+            <h1 class="contenedorTitulosAcercaDeNosotros">Educación de calidad</h1>
+            <div>
+              <p>Favorecemos a una educación de calidad con la pretensión de proporcionar igualdad de acceso a la
+                información,
+                eliminando las disparidades de género y riqueza que puede haber en algunos países o incluso, en el
+                nuestro.
+                Porque cuando las personas pueden obtener una educación de calidad es posible romper el ciclo de la
+                pobreza.
+              </p>
             </div>
           </div>
-          <div class="carousel-item" data-bs-interval="100000">
-            <img src="./assets/imagenes/UnMundoFelizEdicion1.jpg" class="d-block" alt="...">
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+        <div class="contenedorCartaODS" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200"
+          id="ecosistema">
+          <div class="contenedorImagenODS">
+            <img src="./assets/imagenes/iconos/ODSEcosistema.png" alt="ODSEcosistemas">
+          </div>
+          <div class="contenedorCarta">
+            <h1 class="contenedorTitulosAcercaDeNosotros">Sostenibilidad ambiental</h1>
+            <div>
+              <p>La pérdida de los bosques implica la desaparición de
+                algunos medios de subsistencia sobre todo en las comunidades rurales,
+                el deterioro de la biodiversidad, la degradación del suelo y el aumento de las emisiones de carbono.
+                Así que estamos a favor de la reducción de la deforestación por bienes no esenciales.
+              </p>
+            </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
   </div>
-
-  <div class="container__slider contenedorPRIMIGENIOPRUEBA border border-primary">
-
-    <div class="container contenedorPrueba border border-danger">
-      <input type="radio" name="slider" id="item-1" checked>
-      <input type="radio" name="slider" id="item-2">
-      <input type="radio" name="slider" id="item-3">
-
-      <div class="cards cartasPrueba border border-primary">
-        <label class="card cartaPrueba border border-danger" for="item-1" id="selector-1">
-          <img class="imagenPrueba" src="./assets/imagenes/ElCaminoDeLosReyesEdicion1.jpg">
-        </label>
-        <label class="card cartaPrueba" for="item-2" id="selector-2">
-          <img class="imagenPrueba" src="./assets/imagenes/UnMundoFelizEdicion1.jpg">
-        </label>
-        <label class="card cartaPrueba" for="item-3" id="selector-3">
-          <img class="imagenPrueba" src="./assets/imagenes/UnMundoFelizEdicion2.jpg">
-        </label>
-
-      </div>
-    </div>
-  </div>
-
 
   <footer id="footerCustom">
-    <div class="text-center">
-      <input type="text" placeholder="Tu correo crack" class="inputFooter rounded-pill">
-      <input type="button" value="Log in" class="buttonFooter rounded-pill">
+    <div class="row justify-content-center contenedorIconosFooter w-100 eliminarGutter">
+      <div class="col-4">
+      </div>
+      <div class="col-1 d-flex justify-content-center">
+        <i class="bi bi-twitter iconFooterTwitter"></i>
+      </div>
+      <div class="col-1 d-flex justify-content-center">
+        <i class="bi bi-instagram iconoFooterIg"></i>
+      </div>
+      <div class="col-1 d-flex justify-content-center">
+        <i class="bi bi-youtube iconoFooterYoutube"></i>
+      </div>
+      <div class="col-1 d-flex justify-content-center">
+        <i class="bi bi-discord iconoFooterDiscord"></i>
+      </div>
+      <div class="col-4">
+      </div>
     </div>
-    <div class="d-flex justify-content-evenly mt-5">
+    <div class="d-flex justify-content-evenly pt-5">
       <div>
         <ul class="titulosFooter">Fuentes usadas
           <li class="elementosFooter">Fuente1</li>
@@ -225,13 +237,6 @@
       </div>
     </div>
     <hr class="hrFooter">
-    <div class="d-flex justify-content-end me-5">
-      <i class="bi bi-twitter iconCustom iconFooter me-3"></i>
-      <i class="bi bi-instagram iconCustom iconFooter me-3"></i>
-      <i class="bi bi-youtube iconCustom iconFooter me-3"></i>
-      <i class="bi bi-facebook iconCustom iconFooter me-3"></i>
-      <i class="bi bi-discord iconCustom iconFooter me-3"></i>
-    </div>
   </footer>
 
 </body>

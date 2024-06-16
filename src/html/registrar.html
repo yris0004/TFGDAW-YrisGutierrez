@@ -13,55 +13,64 @@
 
 <body>
 
-    <div class="w-100 row">
-        <div class="col-5 bg-primary-subtle vh-100">
-        </div>
-        <div class="col-7 d-flex align-items-center justify-content-center">
-            <div class="card">
-                <form class="card-body">
-                    <h1 class="card-title">Registrarse</h1>
+    <div class="h-100 row fondoInicioSesion d-flex align-items-center justify-content-center eliminarGutter">
+        <div class="col-6 vh-100">
+            <div class="contenedorTituloRegistro">
+                <h1 class="tituloBienvenida">Crea tu cuenta ahora!</h1>
+                <h3 class="tercerosTitulos">Empieza a explorar nuevas historias hoy y crea la tuya mañana</h3>
+            </div>
+            <div class="contenedorRegistro">
+                <div class="contenidoFondoRegistro"></div>
+                <div class="d-flex flex-column justify-content-center align-items-center pb-4">
+                    <h1>Registrarse</h1>
+                </div>
+                <form class="formularioInicioSesion w-75">
+                    <div class="row mb-4">
+                        <div class="col-6 position-relative">
+                            <input type="text" id="nombreRegistro" required>
+                            <label for="nombreRegistro"><span>Nombre</span></label>
+                        </div>
+                        <div class="col-6 position-relative">
+                            <input type="text" id="apellido" required>
+                            <label for="apellido"><span>Apellidos</span></label>
+                        </div>
+                    </div>
+                    <div class="row mv-4">
+                        <div class="col-12 position-relative">
+                            <input type="text" id="emailRegistro" required>
+                            <label for="emailRegistro"><span>Email</span></label>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-6 position-relative">
+                            <input type="text" id="nombreUsuario" required>
+                            <label for="nombreUsuario"><span>Nombre Usuario</span></label>
+                        </div>
+                        <div class="col-6 position-relative">
+                            <input type="password" id="password" required>
+                            <label for="password"><span>Password</span></label>
+                        </div>
+                    </div>
                     <div class="row">
-                        <div class="col-6">
-                            <label id="nombre" for="nombreRegistro">Nombre</label>
-                            <input class="form-control" type="text" id="nombreRegistro">
-                        </div>
-                        <div class="col-6">
-                            <label id="apellido" for="apellidoRegistro">Apellidos</label>
-                            <input class="form-control" type="text" id="apellidoRegistro">
+                        <div class="col-12 mb-5 position-relative">
+                            <input type="text" id="telefonoRegistro" required>
+                            <label for="telefonoRegistro"><span>Telefono</span></label>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label id="Email" for="emailRegistro">Email</label>
-                        <input class="form-control" type="text" id="emailRegistro">
+                    <div class="w-100 d-flex justify-content-center">
+                        <button id="registroUsuario" class="w-50 botonCustom">Registrarme</button>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label id="nombreUsuario" for="nombreUsuarioRegistro">Nombre de usuario</label>
-                            <input class="form-control" type="text" id="nombreUsuarioRegistro">
-                        </div>
-                        <div class="col-6">
-                            <label for="passwordRegistro" id="password">Password</label>
-                            <input class="form-control" type="password" id="passwordRegistro">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="telefonoRegistro" id="telefono">Telefono</label>
-                        <input class="form-control" type="number" id="telefonoRegistro">
-                    </div>
-                    <div class="mb-3">
-                        <label for="comentarioRegistro" id="comentario">Comentario</label>
-                        <textarea class="form-control" name="comentarioRegistro" id="comentarioRegistro"
-                        style="resize: none;"></textarea>
-                    </div>
-                    <button id="registroUsuario" class="btn btn-primary botonCustom">Registrarme</button>
                 </form>
             </div>
         </div>
     </div>
+
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.js"
-integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"crossorigin="anonymous"></script>
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 <script src="../../assets/js/Registro.js"></script>
+
 </html>

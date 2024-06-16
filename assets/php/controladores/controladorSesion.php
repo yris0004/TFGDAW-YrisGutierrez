@@ -33,14 +33,4 @@ if(isset($_REQUEST['cerrarSesion']))
     echo json_encode(true);
 }
 
-//Controlador sesión activa
-if(isset($_REQUEST['sesionActiva']))
-{
-    $resultado = false;
-
-    if(isset($_SESSION['usuarioActivo'])) {
-        $resultado = $_SESSION['usuarioActivo'];
-    }
-    echo json_encode($resultado);
-}
 ?>

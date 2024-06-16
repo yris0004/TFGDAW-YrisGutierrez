@@ -28,7 +28,7 @@ if(isset($_POST['allGeneros']))
 if(isset($_POST['updateGenero'])) 
 {   
     $actualizarGenero = json_decode($_REQUEST['updateGenero'], true);
-    echo var_dump($actualizarGenero);
+    // echo var_dump($actualizarGenero);
     $updateGenero = $metodos->actualizarRegistro($actualizarGenero, 'generos');
     echo json_encode($updateGenero);
 }

@@ -157,7 +157,7 @@ function formEjemplar(datosEjemplar = null) {
         const selectedEditorialId = selectEditoriales.selectedOptions[0].id;
         const cadena2 = selectedEditorialId.split("_");
         idEditorial = cadena2[1];
-        crearNewEjemplar(idEditorial, idLibro)
+        crearNewPortada(idEditorial, idLibro);
     });
 
     if (datosEjemplar !== null && datosEjemplar !== undefined) {
@@ -210,11 +210,31 @@ function formEjemplar(datosEjemplar = null) {
 
 //Crear tabla de ejemplares
 function tablaEjemplares() {
+
     const contenedor = document.querySelector('#tabla-container');
     contenedor.innerHTML = "";
 
-    const tabla = crearElemento("table", undefined, { id: "tablaEjemplares", class:"table table-striped responsive"});
+    //Se añade el titulo de la gestión
+    const nombreGestion = document.querySelector('#nombreGestion');
+    nombreGestion.innerHTML = "Gestión de ejemplares";
+
+    //Se añade el boton para un nuevo registro y se borra el anterior 
+    const encabezadoTablaBoton = document.querySelector('#botonAddGestion');
+    encabezadoTablaBoton.innerHTML = "";
+
+    const imagenRegistro = crearElemento("img", undefined, { src: "../../assets/imagenes/iconos/registro.png", alt: "Nuevo Registro" });
+    const botonAddGestion = crearElemento("input", undefined, {
+        type: "button", value: "Añadir ejemplar", class: "botonCustom", id: "addLibroTabla", "data-bs-toggle": "modal",
+        "data-bs-target": "#modalFormulario"
+    });
+
+    encabezadoTablaBoton.appendChild(imagenRegistro);
+    encabezadoTablaBoton.appendChild(botonAddGestion);
+
+    const tabla = crearElemento("table", undefined, { id: "tablaEjemplares", class: "table table-striped table-centered responsive" });
     contenedor.appendChild(tabla);
+
+    botonAddGestion.addEventListener("click", () => formEjemplar());
 
     const parametrosLibros = {
         allEjemplares: JSON.stringify({
@@ -235,21 +255,41 @@ function tablaEjemplares() {
                 // Inicializar DataTables con los datos recibidos
                 $('#tablaEjemplares').DataTable({
                     data: allEjemplares,
+                    language: {
+                        lengthMenu: "Mostrar _MENU_ ejemplares por página"
+                    },
                     columns: [
-                        { data: 'nombre_libro', title: 'Titulo' },
+                        {
+                            data: 'nombre_libro',
+                            title: 'Titulo',
+                            render: function (data) {
+                                return data !== null ? data : `<div class="errorFaltaUnDato"><div class="errorFaltaUnDatoColorFondo"></div>No hay ningún titulo asociado</div>`;
+                            }
+                        },
                         {
                             data: 'portada',
                             title: 'Portada',
                             orderable: false,
                             render: function (data, row) {
-                                return `<img src="../../assets/imagenes/${data}"
-                                alt="${row.nombre_libro}>" style="width:100px; height:auto;">`
+                                return data !== null ? `<img src="../../assets/imagenes/portadas/${data}"
+                                alt="${row.nombre_libro}>" style="width:100px; height:auto;">` : `<div class="errorFaltaUnDato"><div class="errorFaltaUnDatoColorFondo"></div>No hay ninguna portada asociada</div>`
                             }
                         },
-                        { data: 'nombre_editorial', title: 'Editorial' },
-                        { data: 'num_paginas', title: 'Numero paginas' },
-                        { data: 'stock', title: 'Stock' },
-
+                        {
+                            data: 'nombre_editorial',
+                            title: 'Editorial',
+                            render: function (data) {
+                                return data !== null ? data : `<div class="errorFaltaUnDato"><div class="errorFaltaUnDatoColorFondo"></div>No hay ninguna editorial asociada</div>`;
+                            }
+                        },
+                        { data: 'num_paginas', title: 'Número de paginas' },
+                        {
+                            data: 'stock',
+                            title: 'Stock',
+                            render: function (data) {
+                                return data > 0 ? data : `<div class="noDisponible"><div class="noDisponibleColorFondo"></div>No disponible</div>`;
+                            }
+                        },
                         { data: 'observaciones', title: 'Observaciones', orderable: false },
                         {
                             data: null,
@@ -257,18 +297,34 @@ function tablaEjemplares() {
                             orderable: false,
                             render: function (row) {
                                 return `
-                                <div class="d-flex">
-                                    <a class="nav-link btn-remove" id="btnRemove_${row.id_ejemplar}"><i class="bi bi-trash iconCustomTrash"></i></a>
-                                    <a class="nav-link btn-edit" id="btnEdit_${row.id_ejemplar}" type="button" data-bs-toggle="modal" data-bs-target="#modalFormulario"><i class="bi bi-pencil-square iconCustomUpdate"></i></a>
-                                    <a class="nav-link btn-noDisponible" id="noDisponible_${row.id_ejemplar}"><i class="bi bi-0-circle iconCustomTrash"></i></a>
-                                </div>`
+                                        <div class="d-flex">
+                                            <a class="nav-link btn-remove" id="btnRemove_${row.id_ejemplar}">
+                                                <lord-icon src="https://cdn.lordicon.com/skkahier.json" 
+                                                    trigger="hover"
+                                                    colors="primary:#e83a30"
+                                                    style="width:50px;height:50px">
+                                                </lord-icon>
+                                            </a>
+                                            <a class="nav-link btn-edit" id="btnEdit_${row.id_ejemplar}" 
+                                                type="button" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#modalFormulario">
+                                                <lord-icon src="https://cdn.lordicon.com/xpgofwru.json"
+                                                    trigger="hover"
+                                                    colors="primary:#5d043f"
+                                                    style="width:50px;height:50px">
+                                                </lord-icon>
+                                            </a>
+                                            <a class="nav-link btn-noDisponible" id="noDisponible_${row.id_ejemplar}">
+                                                <i class="bi bi-circle-fill iconCustomVaciar"></i>
+                                            </a>
+                                        </div>`
                             }
                         }
                     ],
                     responsive: true
                 });
 
-                // $('.dt-start').eq(0).addClass('encabezadoTabla');
                 $('.dt-search input').attr('placeholder', 'Buscador');
                 $('#tablaEjemplares').on('click', '.btn-edit', function () {
                     let idBtnEjemplar = this.id;
@@ -369,52 +425,9 @@ function vaciarStock(idEjemplar) {
     })
 }
 
-//Ajax para añadir un nuevo ejemplar 
-function crearNewEjemplar(selectedLibro, selectedEditorial) {
-
-    const nombrePortada = crearNewPortada();  
-    console.log(nombrePortada);
-
-    const numPaginas = document.querySelector("#inputnumPaginas").value;
-    const stock = document.querySelector("#inputstock").value;
-    const observacionesEjemplar = document.querySelector("#inputObservacionesEjemplar").value;
-
-    const parametros = {
-        newEjemplar: JSON.stringify({
-            "portada": nombrePortada,
-            "num_paginas": numPaginas,
-            "fk_editorial": selectedEditorial,
-            "fk_libro": selectedLibro,
-            "stock": stock,
-            "observaciones": observacionesEjemplar
-        })
-    }
-    // console.log(parametros);
-    $.ajax({
-        type: "POST",
-        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
-        data: parametros,
-        success: function (respuesta) {
-            // respuesta = false;
-            if (respuesta) {
-                tablaEjemplares();
-                document.querySelector("#inputnumPaginas").value = "";
-                document.querySelector("#inputstock").value = "";
-                document.querySelector("#inputObservacionesEjemplar").value = "";
-                crearNewPortada();
-            }
-            else {
-                console.log(respuesta);
-            }
-        },
-        error: function (a, b, errorMsg) {
-            console.log(errorMsg);
-        }
-    })
-}
-
 //Ajax para añadir o actualizar una portada de un ejemplar
-function crearNewPortada() {
+function crearNewPortada(selectedLibro, selectedEditorial) {
+    console.log("Entra en crear nueva portada");
     const portadaEjemplar = document.querySelector('#portadaEjemplar');
 
     // Se comprueba que existe una portada 
@@ -432,11 +445,8 @@ function crearNewPortada() {
             contentType: false, // No establecer contentType para FormData
             processData: false, // No procesar FormData
             success: function (respuesta) {
-                console.log(respuesta);
                 if (respuesta) {
-                    console.log(respuesta);
-                    console.log('Se ha subido la imagen');
-                    return respuesta;
+                    crearNewEjemplar(selectedLibro, selectedEditorial, respuesta)
                 }
                 else {
                     console.log(respuesta);
@@ -447,6 +457,48 @@ function crearNewPortada() {
             }
         })
     }
+}
+
+//Ajax para añadir un nuevo ejemplar 
+function crearNewEjemplar(selectedLibro, selectedEditorial, nombrePortada) {
+    
+    console.log("Entra en crear nuevo ejemplar");
+    const numPaginas = document.querySelector("#inputnumPaginas").value;
+    const stock = document.querySelector("#inputstock").value;
+    const observacionesEjemplar = document.querySelector("#inputObservacionesEjemplar").value;
+
+    const parametros = {
+        newEjemplar: JSON.stringify({
+            "portada": nombrePortada,
+            "num_paginas": numPaginas,
+            "fk_editorial": selectedEditorial,
+            "fk_libro": selectedLibro,
+            "stock": stock,
+            "observaciones": observacionesEjemplar
+        })
+    }
+
+    console.log(parametros);
+    $.ajax({
+        type: "POST",
+        url: "../../assets/php/controladores/controladorEjemplar/controladorEjemplar.php",
+        data: parametros,
+        success: function (respuesta) {
+            console.log(respuesta);
+            if (respuesta) {
+                tablaEjemplares();
+                document.querySelector("#inputnumPaginas").value = "";
+                document.querySelector("#inputstock").value = "";
+                document.querySelector("#inputObservacionesEjemplar").value = "";
+            }
+            else {
+                console.log(respuesta);
+            }
+        },
+        error: function (a, b, errorMsg) {
+            console.log(errorMsg);
+        }
+    })
 }
 
 //Ajax para eliminar un ejemplar

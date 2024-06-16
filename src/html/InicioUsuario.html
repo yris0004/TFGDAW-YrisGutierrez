@@ -1,91 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio sesion</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio sesion</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
-    crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css" 
-    rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
+
 <body id="fondo">
-  <header id="headerCustom">
-    <div class="row">
-      <div class="col-3 d-flex justify-content-center">
-        <img class="ms-5 img-fluid" id="iconLogotipo" src="assets/imagenes/logotipoFondo.png" alt="logotipo">
+  <header class="headerCustomGeneral">
+    <div class="row w-100 h-100">
+      <div class="h-100 col-7 d-flex contenedorMenuIzquierda">
+        <img class="img-fluid" src="../../assets/imagenes/logotipoFondo.png" alt="logotipo">
+        </a>
       </div>
-      <div class="col-5 d-flex justify-content-start">
-        <h1 class="tituloWeb">LiberLibro</h1>
+      <div class="col col-md-1 d-flex h-100 justify-content-center">
+        <a href="../../index.html" class="iconosHeader h-100">
+          <img class="h-100" src="../../assets/imagenes/iconos/iconoHomeGeneral.png" alt="home" id="iconoHome">
+        </a>
       </div>
-      <div class="col-4 d-flex justify-content-start">
-        <div class="col-2 d-flex justify-content-center">
-          <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
-            <a href="../../index.html">
-              <img class="w-100 iconoHeader pb-2" src="../../assets/imagenes/iconos/home.png" alt="catalogo">
-            </a>
-          </li>
-          </div>
-        <div class="col-2 d-flex justify-content-center">
-        <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
-          <a>
-            <img class="w-100 iconoHeader pb-2" src="../../assets/imagenes/iconos/IconoCatalogo.png" alt="catalogo" id="iconoCatalogo">
-          </a>
-        </li>
-        </div>
-        <div class="col-2 d-flex justify-content-center">
-          <li class="nav-item nav-link d-flex justify-content-center align-items-center contenedorIconos">
-          <a>
-            <img class="w-100 iconoHeader pb-2" src="../../assets/imagenes/iconos/carrito.png" alt="catalogo" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="iconoCarrito">
-          </a>
-        </li>
-        </div>
-        <div class="col-6 d-flex justify-content-center">
-          <li class="nav-item dropdown nav-link d-flex justify-content-center align-items-center contenedorIconos">
-          <a>
-            <img class="w-100 iconoHeader pb-2" src="../../assets/imagenes/iconos/usuario.png" alt="usuario" data-bs-toggle="dropdown" aria-expanded="false">
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" id="cargarPerfilUsuario">Perfil</a></li>
-              <li><a class="dropdown-item" id="cerrarSesion">Cerrar Sesión</a></li>
-            </ul>
-          </a>
-        </li>
+      <div class="col col-md-1 d-flex h-100 justify-content-center">
+        <a class="iconosHeader h-100">
+          <img class="h-100" src="../../assets/imagenes/iconos/iconoCatalogoGeneral.png" alt="catalogo"
+            id="iconoCatalogo">
+        </a>
       </div>
+      <div class="col col-md-1 d-flex h-100 justify-content-center">
+        <a class="iconosHeader h-100" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight">
+          <img class="h-100" src="../../assets/imagenes/iconos/iconoCestaGeneral.png" alt="cesta" id="iconoCesta">
+        </a>
+      </div>
+      <div class="col col-md-2 d-flex h-100 justify-content-center dropdown">
+        <a class="iconosHeader h-100" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="h-100" src="../../assets/imagenes/iconos/iconoUsuarioGeneral.png" alt="perfil" id="iconoUsuario">
+        </a>
+        <ul class="dropdown-menu text-center desplegableTriangulo">
+          <li><a class="dropdown-item seleccionDropDownMenu" id="perfil">Perfil</a></li>
+          <li><a class="dropdown-item seleccionDropDownMenu" id="cerrarSesion">Cerrar Sesión</a></li>
         </ul>
       </div>
     </div>
   </header>
+  <div class="contenedorMenuLateral">
+    <!-- <h1 class="contenedorMenuLateral">Inicion sesion usuario</h1> -->
 
-  <h1>Inicion sesion usuario</h1>
-    <form>
-        <button class="btn btn-danger" id="cerrarSesion">Cerrar Sesion</button>
-    </form>
-    <input type="text" placeholder="Busca el libro que deseas" id="buscador">
+    <!-- <div class="container__slider contenedorPRIMIGENIOPRUEBA border border-primary">
 
-    <div class="row">
-        <div class="col-3">
+      <div class="container contenedorPrueba border border-danger">
+        <input type="radio" name="slider" id="item-1" checked>
+        <input type="radio" name="slider" id="item-2">
+        <input type="radio" name="slider" id="item-3">
+
+        <div class="cards cartasPrueba border border-primary">
+          <label class="card cartaPrueba border border-danger" for="item-1" id="selector-1">
+            <img class="imagenPrueba" src="../../assets/imagenes/ElArchivoDeLasTormentas.jpg">
+          </label>
+          <label class="card cartaPrueba" for="item-2" id="selector-2">
+            <img class="imagenPrueba" src="../../assets/imagenes/FrankensteinEdicion1.jpg">
+          </label>
+          <label class="card cartaPrueba" for="item-3" id="selector-3">
+            <img class="imagenPrueba" src="../../assets/imagenes/PortadaBabel.jpg">
+
         </div>
-        <div class="col-9 row" id="contenedorLibros">
-        </div>
-    </div>
-    
+      </div>
+    </div> -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
-        <h5 id="offcanvasRightLabel">Cosas</h5>
+        <h5 id="offcanvasRightLabel">Cesta</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body d-flex flex-column" id="bodyOffcanvas">
-            <div id="items">
-            </div>
+      <!-- <div class="d-flex flex-column justify-content-center align-items-center">
+      <div class="row border border-danger eliminarGutter fondoFilaCesta mb-4">
+        <div class="col-4 border border-primary contenedorIzquierdoCesta">
+          <img class="h-75 img-fluid" src="../../assets/imagenes/ElCaminoDeLosReyesEdicion1.jpg">
+        </div>
+        <div class="col-8 border border-warning contenedorDerechoCesta">
+          <p>Titulo: El archivo</p>
+          <p>Titulo: El archivo</p>
+          <p>Titulo: El archivo</p>
+          <lord-icon
+              src="https://cdn.lordicon.com/zxvuvcnc.json"
+              trigger="hover"
+              class="iconoCestaBorrar">
+          </lord-icon>
+        </div>
+      </div> -->
+      <!-- <div class="row border border-danger eliminarGutter fondoFilaCesta mb-4">
+        <div class="col-4 border border-primary contenedorIzquierdoCesta">
+          <img class="h-75 img-fluid" src="../../assets/imagenes/ElCaminoDeLosReyesEdicion1.jpg">
+        </div>
+        <div class="col-8 border border-warning contenedorDerechoCesta">
+          <p>Titulo: El archivo</p>
+          <p>Titulo: El archivo</p>
+          <p>Titulo: El archivo</p>
+        </div>
+      </div> -->
+      <!-- <div class="row border border-danger eliminarGutter fondoFilaCesta mb-4">
+        <div class="col-4 border border-primary contenedorIzquierdoCesta">
+          <img class="h-75 img-fluid" src="../../assets/imagenes/ElCaminoDeLosReyesEdicion1.jpg">
+        </div>
+        <div class="col-8 border border-warning contenedorDerechoCesta">
+          <p>Titulo: El archivo</p>
+          <p>Titulo: El archivo</p>
+          <p>Titulo: El archivo</p>
+        </div>
       </div>
-    </div>  
+      <div class="row border border-danger eliminarGutter fondoFilaCesta mb-4">
+        <div class="col-4 border border-primary contenedorIzquierdoCesta">
+          <img class="h-75 img-fluid" src="../../assets/imagenes/ElCaminoDeLosReyesEdicion1.jpg">
+        </div>
+        <div class="col-8 border border-warning contenedorDerechoCesta">
+          <p>Titulo: El archivo</p>
+          <p>Titulo: El archivo</p>
+          <p>Titulo: El archivo</p>
+        </div>
+      </div>
+    </div> -->
+      <div class="offcanvas-body" id="bodyOffcanvas">
+      </div>
+      <div id="items" class="d-flex flex-column d-flex flex-column justify-content-center align-items-center">
+      </div>
+    </div>
+  </div>
+  <!-- <div id="contenedorSuperior" class="d-flex justify-content-center align-items-center">
+    <h1>Nuestras tendencias</h1>
+  </div>
+  <div class="contenedorTendencias">
+    <div class="cartaTendencia contenidoTop1">
+      <div class="contenidoCartaTendencia">
+        <img src="../../assets/imagenes/FrankensteinEdicion1.jpg" alt="Image 1">
+        <h1>#TOP 1</h1>
+      </div>
+    </div>
+    <div class="cartaTendencia contenidoTop2">
+      <div class="contenidoCartaTendencia">
+        <img src="../../assets/imagenes/FrankensteinEdicion1.jpg" alt="Image 1">
+        <h1>#TOP 2</h1>
+      </div>
+    </div>
+    <div class="cartaTendencia contenidoTop3">
+      <div class="contenidoCartaTendencia">
+        <img src="../../assets/imagenes/FrankensteinEdicion1.jpg" alt="Image 1">
+        <h1>#TOP 3</h1>
+      </div>
+    </div>
+    <div class="cartaTendencia contenidoTop4">
+      <div class="contendioCartaTendencia">
+        <img src="../../assets/imagenes/FrankensteinEdicion1.jpg" alt="Image 1">
+        <h1>#TOP 4</h1>
+      </div>
+    </div>
+    <div class="cartaTendencia contenidoTop5">
+      <div class="contenidoCartaTendencia">
+        <img src="../../assets/imagenes/FrankensteinEdicion1.jpg" alt="Image 1">
+        <h1>#TOP 5</h1>
+      </div>
+    </div>
+    <div class="cartaTendencia contenidoTop6">
+      <div class="contenidoCartaTendencia">
+        <img src="../../assets/imagenes/FrankensteinEdicion1.jpg" alt="Image 1">
+        <h1>#TOP 6</h1>
+      </div>
+    </div>
+  </div> -->
+  <div id="contenedorLibros" class="row w-100 eliminarGutter justify-content-center">
+  </div>
+  </div>
+    <!-- <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <lord-icon
+        src="https://cdn.lordicon.com/kgdqzapd.json"
+        trigger="hover"
+        colors="primary:#5d043f"
+        style="width:250px;height:250px">
+    </lord-icon> -->
+
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
@@ -93,17 +192,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-           <div id="contenedorLibrosModal">
+            <div id="contenedorLibrosModal">
               <h1>Libros solicitados</h1>
               <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" id="contenedorSlide">
                   <!-- Aquí se añaden los libros seleccionados en la cesta-->
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                  data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
-                </button> 
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                  data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
@@ -111,9 +212,10 @@
             </div>
             <div id="contenedorMapaModal">
               <h1>Ubicación de recogida</h1>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2896.3006465259373!2d-3.817103523203369!3d43.454320171112315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd494a320737094d%3A0x24818bb9a827567e!2sBiblioteca%20Central%20de%20Cantabria!5e0!3m2!1ses!2ses!4v1716640531851!5m2!1ses!2ses" 
-                style="border:0;" allowfullscreen="" loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade" class="iframeModal"></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2896.3006465259373!2d-3.817103523203369!3d43.454320171112315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd494a320737094d%3A0x24818bb9a827567e!2sBiblioteca%20Central%20de%20Cantabria!5e0!3m2!1ses!2ses!4v1716640531851!5m2!1ses!2ses"
+                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                class="iframeModal"></iframe>
             </div>
             <div id="contenedorFecha">
               <h1>Fecha de devolución</h1>
@@ -124,53 +226,66 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Volver al carrito</button>
-            <button type="button" class="btn btn-primary" id="solicitarPrestamo" data-bs-dismiss="modal">Solicitar prestamo</button>
+            <button type="button" class="btn btn-primary" id="solicitarPrestamo" data-bs-dismiss="modal">Solicitar
+              préstamo</button>
           </div>
         </div>
       </div>
     </div>
-  
-    <footer id="footerCustom">
-        <div class="text-center">
-          <input type="text" placeholder="Tu correo crack" class="inputFooter rounded-pill"> 
-          <input type="button" value="Log in" class="buttonFooter rounded-pill">
-        </div>
-      <div class="d-flex justify-content-evenly mt-5">
-        <div>
-          <ul class="titulosFooter">Fuentes usadas
-            <li class="elementosFooter">Fuente1</li>
-            <li class="elementosFooter">Fuente1</li>
-            <li class="elementosFooter">Fuente1</li>
-          </ul>
-        </div>
-        <div>
-          <ul class="titulosFooter">Fuentes usadas
-            <li class="elementosFooter">Fuente1</li>
-            <li class="elementosFooter">Fuente1</li>
-            <li class="elementosFooter">Fuente1</li>
-          </ul>
-        </div>
-        <div>
-          <ul class="titulosFooter">Fuentes usadas
-            <li class="elementosFooter">Fuente1</li>
-            <li class="elementosFooter">Fuente1</li>
-            <li class="elementosFooter">Fuente1</li>
-          </ul>
-        </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footerCustomUsuario">
+    <div class="row justify-content-center contenedorIconosFooter w-100 eliminarGutter">
+      <div class="col-4">
       </div>
-      <hr class="hrFooter">
-      <div class="d-flex justify-content-end me-5">
-        <i class="bi bi-twitter iconCustom iconFooter me-3"></i>
-        <i class="bi bi-instagram iconCustom iconFooter me-3"></i>
-        <i class="bi bi-youtube iconCustom iconFooter me-3"></i>
-        <i class="bi bi-facebook iconCustom iconFooter me-3"></i>
-        <i class="bi bi-discord iconCustom iconFooter me-3"></i>
+      <div class="col-1 d-flex justify-content-center">
+        <i class="bi bi-twitter iconFooterTwitter"></i>
       </div>
-    </footer>
+      <div class="col-1 d-flex justify-content-center">
+        <i class="bi bi-instagram iconoFooterIg"></i>
+      </div>
+      <div class="col-1 d-flex justify-content-center">
+        <i class="bi bi-youtube iconoFooterYoutube"></i>
+      </div>
+      <div class="col-1 d-flex justify-content-center">
+        <i class="bi bi-discord iconoFooterDiscord"></i>
+      </div>
+      <div class="col-4">
+      </div>
+    </div>
+    <div class="d-flex justify-content-evenly pt-5">
+      <div>
+        <ul class="titulosFooter">Fuentes usadas
+          <li class="elementosFooter">Fuente1</li>
+          <li class="elementosFooter">Fuente1</li>
+          <li class="elementosFooter">Fuente1</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="titulosFooter">Fuentes usadas
+          <li class="elementosFooter">Fuente1</li>
+          <li class="elementosFooter">Fuente1</li>
+          <li class="elementosFooter">Fuente1</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="titulosFooter">Fuentes usadas
+          <li class="elementosFooter">Fuente1</li>
+          <li class="elementosFooter">Fuente1</li>
+          <li class="elementosFooter">Fuente1</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="hrFooter">
+  </footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
 <script src="../../assets/js/usuario/InicioUsuario.js"></script>
 
-</html> 
+</html>

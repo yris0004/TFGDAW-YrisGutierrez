@@ -11,7 +11,7 @@ let carrito = JSON.parse(localStorage.getItem('carritoLibros')) || [];
 function principal() {
     document.querySelector("#cerrarSesion").addEventListener("click", cerrarSesion);
     document.querySelector("#iconoCatalogo").addEventListener("click", volverInicio);
-    document.querySelector('#iconoCarrito').addEventListener("click", imprimirCarrito);
+    document.querySelector('#iconoCesta').addEventListener("click", imprimirCarrito);
     document.querySelector("#solicitarPrestamo").addEventListener("click", realizarPrestamo);
 
     const parametros = {
@@ -101,44 +101,77 @@ function imprimirLibros(arrLibros) {
     const contenedorTodosLibros = document.querySelector("#contenedorLibros");
     contenedorTodosLibros.innerHTML = "";
 
+    const tituloSeccion = crearElemento("h1", "Catalogo de libros");
+    contenedorTodosLibros.appendChild(tituloSeccion);
+
+    const contenedorBuscador = crearElemento("div", undefined, {class:"contenedorBuscador"});
+    const buscador = crearElemento("input", undefined, {
+        placeholder: "Buscador",
+        id: "buscador",
+    });
+    const iconoBuscador = crearElemento("lord-icon", undefined, {
+        src:"https://cdn.lordicon.com/fkdzyfle.json",
+        trigger:"hover",
+        colors:"primary:#5d043f",
+        style:"width:30px;height:30px"
+    })
+    contenedorBuscador.appendChild(iconoBuscador)
+    contenedorBuscador.appendChild(buscador);
+    contenedorTodosLibros.appendChild(contenedorBuscador);
+
+    const contenedorFiltros = crearElemento("div", undefined, { class: "col-3 border border-danger contenedorFiltros" });
+    const tituloFiltros = crearElemento("h3", "Filtros");
+
+    contenedorFiltros.appendChild(tituloFiltros);
+    contenedorTodosLibros.appendChild(contenedorFiltros);
+
+    const contenedorCartaFiltros = crearElemento("div", undefined, {class: "border border-primary contenedorCartaFiltros"});
+    contenedorFiltros.appendChild(contenedorCartaFiltros);
+
+    const contenedorLibrosCatalogo = crearElemento("div", undefined, { class: "col-7 row h-100 eliminarGutter border border-warning contenedorLibros" });
     //Recorrer dicho array de objetos
     arrLibros.forEach(libro => {
 
         //Se crea una carta para cada imprimir cada libro
         const contenedorLibro = crearElemento("div", undefined, {
-            class: "col-2 me-3 mb-5 card cartaCatalogo"
+            class: "col-3 cartaCatalogo"
         });
-        const cardImagen = crearElemento("div", undefined, {
-            class: "d-flex h-100 w-100 pt-3 align-self-center cartaContendorImagen"
+        const contenedorImagen = crearElemento("div", undefined, {
+            class: "cartaContendorImagen"
         });
-        const cardBody = crearElemento("div", undefined, {
-            class: "card-body text-center contenedorCuerpoCarta"
+        const contenedorBoton = crearElemento("div", undefined, {
+            class: "contenedorBotonCarta row"
         });
-        const vistaPrevia = crearElemento("p", "Vista previa", {
-            class: "vistaPreviaCatalogo"
-        });
-        const botonNombreLibro = crearElemento("button", "Agregar", {
+        const botonNombreLibro = crearElemento("button", "Vista previa", {
             id: libro.id_ejemplar,
-            class: "botonLibroCatalogo w-100 botonCatalogo"
+            class: "botonNombreLibro w-100"
         });
         const enlacePortada = "../../assets/imagenes/" + libro.portada;
         const portadaLibro = crearElemento("img", undefined, {
             src: enlacePortada,
             alt: libro.portada,
-            class: "card-img-top"
+            class: "img-fluid h-100"
         })
 
-        //Con el append se puede añadir varios elementos a la vez a un elemento padre
-        cardImagen.append(portadaLibro, vistaPrevia);
-        cardBody.append(botonNombreLibro);
-        contenedorLibro.append(cardImagen, cardBody);
-        contenedorTodosLibros.appendChild(contenedorLibro);
-
+        contenedorImagen.append(portadaLibro);
+        contenedorImagen.appendChild(contenedorBoton);
+        contenedorBoton.appendChild(botonNombreLibro);
+        contenedorLibro.append(contenedorImagen);
+        contenedorLibrosCatalogo.appendChild(contenedorLibro);
         //Se llama a la funcion que imprime la vista previa de cada libro
         botonNombreLibro.addEventListener("click", function () {
             infoLibro(libro);
+
         });
     });
+    contenedorTodosLibros.appendChild(contenedorLibrosCatalogo);
+
+    //         <lord-icon
+    //     src="https://cdn.lordicon.com/pbrgppbb.json"
+    //     trigger="hover"
+    //     colors="primary:#5d043f"
+    //     style="width:250px;height:250px">
+    // </lord-icon>
 }
 
 //Función para buscar los libros por titulo
@@ -159,45 +192,129 @@ function filtroLibros(event, arrLibros) {
 //Función para mostrar una página con todos los datos sobre el libro
 function infoLibro(libroSeleccionado) {
 
+    console.log(libroSeleccionado);
     contenedorTodosLibros = document.querySelector('#contenedorLibros');
     contenedorTodosLibros.innerHTML = "";
-    // console.log(libroSeleccionado);
-    const contenedorLibro = crearElemento("div", undefined, {
-        class: "row"
+
+    const contenedorTituloSeccion = crearElemento("div", undefined, { class: "d-flex justify-content-center align-items-center" });
+    const tituloSeccion = crearElemento("h1", "Vista previa");
+
+    contenedorTodosLibros.appendChild(contenedorTituloSeccion);
+    contenedorTituloSeccion.appendChild(tituloSeccion);
+
+    const contedorFilaFlecha = crearElemento("div", undefined, { class: "row w-100" });
+    const contenedorVacioFilaFlecha = crearElemento("div", undefined, { class: "col-2" });
+    const contenedorFlecha = crearElemento("div", undefined, { class: "col-10" });
+    const iconoFlecha = crearElemento("lord-icon", undefined, {
+        src: "https://cdn.lordicon.com/whtfgdfm.json",
+        trigger: "hover",
+        colors: "primary:#5d043f",
+        style: "width:70px;height:70px",
+        class: "iconoVistaPrevia",
+        id: "volverCatalogo"
     });
-    const contenedorCartaIzquierda = crearElemento("div", undefined, {
-        class: "col-4 contenedorCartaVistaPreviaIzquierda"
-    });
-    const contenedorCartaDerecha = crearElemento("div", undefined, {
-        class: "col-7 contenedorCartaVistaPreviaDerecho"
-    });
-    const titulo = crearElemento("p", libroSeleccionado.nombre_libro, {
-        id: libroSeleccionado.id_ejemplar
-    });
-    const stock = crearElemento("p", "Quedan en stock: " + libroSeleccionado.stock);
-    // console.log(portada)
-    const enlacePortada = "../../assets/imagenes/" + libroSeleccionado.portada;
-    const botonCarrito = crearElemento("button", "Agregar al carrito", {
-        class: "btn btn-primary botonCustom",
-        type: "button",
+    const Iratras = crearElemento("p", "Volver al inicio");
+
+    contenedorTodosLibros.appendChild(contedorFilaFlecha);
+    contedorFilaFlecha.appendChild(contenedorVacioFilaFlecha);
+    contedorFilaFlecha.appendChild(contenedorFlecha);
+    contenedorFlecha.appendChild(iconoFlecha);
+    contenedorFlecha.appendChild(Iratras);
+
+    const contenedorVistaPrevia = crearElemento("div", undefined, { class: "row contenedorVistaPrevia" });
+    const contenedorVistaPreviaVacio = crearElemento("div", undefined, { class: "col-3" });
+    const contenedorInfoImagen = crearElemento("div", undefined, { class: "col-3 contenedorInfoImagen eliminarGutter" });
+    const contenedorVistaPreviaImagen = crearElemento("div", undefined, { class: "contenedorVistaPreviaImagen" });
+    const imagenVistaPrevia = crearElemento("img", undefined, { src: "../../assets/imagenes/" + libroSeleccionado.portada });
+
+    contenedorTodosLibros.appendChild(contenedorVistaPrevia);
+    contenedorVistaPrevia.appendChild(contenedorVistaPreviaVacio);
+    contenedorVistaPrevia.appendChild(contenedorInfoImagen);
+    contenedorInfoImagen.appendChild(contenedorVistaPreviaImagen);
+    contenedorVistaPreviaImagen.appendChild(imagenVistaPrevia);
+
+    const contenedorInfoLibro = crearElemento("div", undefined, { class: "col-4 row contenedorInfoLibro eliminarGutter" });
+    const contenidoInfoLibro = crearElemento("div", undefined);
+    const titulo = crearElemento("p", "Titulo: " + libroSeleccionado.nombre_libro);
+    const autor = crearElemento("p", "Autor: " + libroSeleccionado.nombre_autor + " " + libroSeleccionado.apellidos_autor);
+    const generos = crearElemento("p", "Géneros: " + libroSeleccionado.generos_asociados);
+    const editorial = crearElemento("p", "Editorial: " + libroSeleccionado.nombre_editorial);
+    const pagNumero = crearElemento("p", "Número de páginas: " + libroSeleccionado.num_paginas);
+    const pais = crearElemento("p", "Pais: " + libroSeleccionado.pais_autor);
+    const stock = crearElemento("p", "Stock: " + libroSeleccionado.stock);
+
+    const botonCarrito = crearElemento("input", undefined, {
+        class: "w-100 botonCustom mb-3",
+        value: "Añadir a la cesta", type: "button",
         "data-bs-toggle": "offcanvas",
         "data-bs-target": "#offcanvasRight",
         "aria-controls": "offcanvasRight",
     });
-    const portadaLibro = crearElemento("img", undefined, {
-        src: enlacePortada,
-        alt: libroSeleccionado.portada,
-        class: "img-fluid"
-    });
 
-    contenedorCartaIzquierda.appendChild(portadaLibro);
-    contenedorCartaDerecha.append(titulo, stock, botonCarrito)
-    contenedorLibro.append(contenedorCartaIzquierda, contenedorCartaDerecha);
-    contenedorTodosLibros.appendChild(contenedorLibro);
+    contenedorVistaPrevia.appendChild(contenedorInfoLibro);
+    contenedorInfoLibro.appendChild(contenidoInfoLibro);
+    contenidoInfoLibro.append(titulo, autor, generos, editorial, pagNumero, pais, stock);
+    contenidoInfoLibro.appendChild(botonCarrito);
+
+    const contenedorAcordeon = crearElemento("div", undefined, { class: "accordion", id: "acordeonVistaPrevia" });
+    const acordeonItem = crearElemento("div", undefined, { class: "accordion-item" });
+    const acordeonHeader = crearElemento("h2", undefined, { class: "accordion-header", id: "headingOne" });
+    const botonSinopsis = crearElemento("button", "Sinopsis", {
+        class: "accordion-button",
+        type: "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#collapseOne",
+        "aria-expanded": "true",
+        "aria-controls": "collapseOne"
+    });
+    const collapseOne = crearElemento("div", undefined, {
+        id: "collapseOne",
+        class: "accordion-collapse collapse show",
+        "aria-labelledby": "headingOne",
+        "data-bs-parent": "#acordeonVistaPrevia"
+    });
+    const acordeonBody = crearElemento("div", undefined, { class: "accordion-body" });
+    const contenidoAcordeon = crearElemento("div", libroSeleccionado.sinopsis, { class: "overflow-auto", style: "max-height: 300px;" });
+
+    acordeonBody.appendChild(contenidoAcordeon);
+    collapseOne.appendChild(acordeonBody);
+
+    contenidoInfoLibro.appendChild(contenedorAcordeon);
+    contenedorAcordeon.appendChild(acordeonItem);
+    acordeonItem.appendChild(acordeonHeader);
+    acordeonItem.appendChild(botonSinopsis);
+    acordeonItem.appendChild(collapseOne);
+
+    const acordeonItemSegundo = crearElemento("div", undefined, { class: "accordion-item" });
+    const acordeonHeaderEnvio = crearElemento("h2", undefined, { class: "accordion-header", id: "headingTwo" });
+    const botonEnvio = crearElemento("button", "Condiciones de envío", {
+        class: "accordion-button collapsed",
+        type: "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#collapseTwo",
+        "aria-expanded": "false",
+        "aria-controls": "collapseTwo"
+    })
+    const collapseTwo = crearElemento("div", undefined, {
+        id: "collapseTwo",
+        class: "accordion-collapse collapse",
+        "aria-labelledby": "headingTwo",
+        "data-bs-parent": "#acordeonVistaPrevia"
+    });
+    const acordeonBodySegundo = crearElemento("div", "El préstamo de libros en nuestra biblioteca tiene una duración máxima de cuatro semanas. Es fundamental que los libros sean devueltos en el mismo estado en que fueron prestados para mantener la integridad de nuestra colección. Además, se aplican multas por retraso en la devolución.", { class: "accordion-body" });
+
+    collapseTwo.appendChild(acordeonBodySegundo);
+
+    contenedorAcordeon.appendChild(acordeonItemSegundo);
+    acordeonItemSegundo.appendChild(acordeonHeaderEnvio);
+    acordeonItemSegundo.appendChild(botonEnvio);
+    acordeonItemSegundo.appendChild(collapseTwo);
 
     botonCarrito.addEventListener('click', function () {
         agregarCarrito(libroSeleccionado)
     });
+
+    iconoFlecha.addEventListener("click", volverInicio);
 
 }
 
@@ -239,24 +356,35 @@ function imprimirCarrito() {
     }
     else {
         carrito.forEach(libroCarrito => {
-            const item = crearElemento("div", libroCarrito.nombre_libro + ", " + libroCarrito.num_paginas);
-            const borrarItem = crearElemento("button", "Borrar", {
+
+            const filaElemento = crearElemento("div", undefined, { class: "row eliminarGutter fondoFilaCesta mb-4" });
+            const contenedorImagenElemento = crearElemento("div", undefined, { class: "col-4 contenedorIzquierdoCesta" });
+            const imagen = crearElemento("img", undefined, { class: "h-75 img-fluid", src: "../../assets/imagenes/" + libroCarrito.portada });
+
+            const contenedorInfoElemento = crearElemento("div", undefined, { class: "col-8 contenedorDerechoCesta" });
+            const borrarItem = crearElemento("lord-icon", undefined, {
+                src: "https://cdn.lordicon.com/zxvuvcnc.json",
                 id: libroCarrito.id_ejemplar,
-                class: "btn btn-danger"
+                class: "iconoCestaBorrar",
+                trigger: "hover",
+                colors: "primary:#e83a30",
             });
 
             borrarItem.addEventListener("click", function () {
-                items.removeChild(item);
+                items.removeChild(filaElemento);
                 carrito = carrito.filter(carritoEjemplar => carritoEjemplar.id_ejemplar !== libroCarrito.id_ejemplar);
                 guardarCarritoEnLocalStorage(carrito)
-                console.log("Eliminado del carrito");
+                // console.log("Eliminado del carrito");
                 if (carrito.length === 0) {
                     mostrarMensajeCarritoVacio();
                 }
             });
             bodyOffcanvas.appendChild(items);
-            items.appendChild(item);
-            item.appendChild(borrarItem);
+            items.appendChild(filaElemento);
+            filaElemento.appendChild(contenedorImagenElemento);
+            contenedorImagenElemento.appendChild(imagen);
+            filaElemento.appendChild(contenedorInfoElemento);
+            contenedorInfoElemento.appendChild(borrarItem);
         });
         const contendorBotonComprar = crearElemento("div", undefined, { id: "contendorBotonComprar", class: "mt-auto p-2" });
         //Es necesario crear un boton oculto para hacer poder cerrar el offCanvas y abrir el modal

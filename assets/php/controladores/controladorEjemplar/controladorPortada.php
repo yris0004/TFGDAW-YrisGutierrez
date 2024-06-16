@@ -9,9 +9,7 @@ if (isset($_FILES['portadaEjemplar'])) {
     // Verificar si hubo algún error al subir el archivo
     if ($_FILES['portadaEjemplar']['error'] === UPLOAD_ERR_OK) {
 
-        $directorioDestino = "../../../imagenes";
-
-        // Nuevos permisos que deseas establecer (en octal)
+        $directorioDestino = "../../../imagenes/portadas";
         $nuevosPermisos = 0777;
 
         // Intenta cambiar los permisos
@@ -21,17 +19,6 @@ if (isset($_FILES['portadaEjemplar'])) {
             // echo "Hubo un error al cambiar los permisos de la carpeta.";
         }
 
-        $permisos = fileperms($directorioDestino);
-
-        // Comprobar los permisos
-        if ($permisos !== false) {
-            // echo "Los permisos de la carpeta son: " . decoct($permisos) . "\n";
-            // echo "Permisos en formato octal: " . substr(sprintf('%o', $permisos), -4) . "\n";
-
-            // Puedes realizar más acciones según los permisos obtenidos
-        } else {
-            // echo "Hubo un error al obtener los permisos de la carpeta.";
-        }
         $nombreArchivo = $_FILES['portadaEjemplar']['name'];
         $rutaFinal = $directorioDestino . '/' . $nombreArchivo;
         // Obtener la información del archivo

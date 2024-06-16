@@ -70,11 +70,29 @@ function formEditorial(datosEditorial = null) {
 
 //Crear tabla de todas las editoriales
 function tablaEditoriales() {
+
     const contenedor = document.querySelector('#tabla-container');
     contenedor.innerHTML = "";
 
-    const tabla = crearElemento("table",undefined,{id:"tablaEditoriales"});
+    //Se añade el titulo de la gestión
+    const nombreGestion = document.querySelector('#nombreGestion');
+    nombreGestion.innerHTML = "Gestión de editoriales";
+
+    //Se añade el boton para un nuevo registro y se borra el anterior 
+    const encabezadoTablaBoton = document.querySelector('#botonAddGestion');
+    encabezadoTablaBoton.innerHTML = ""; 
+
+    const imagenRegistro = crearElemento("img",undefined, {src:"../../assets/imagenes/iconos/registro.png", alt:"Nuevo Registro"});
+    const botonAddGestion = crearElemento("input",undefined, {type:"button", value:"Añadir editorial", class:"botonCustom", id:"addLibroTabla", "data-bs-toggle":"modal",
+    "data-bs-target":"#modalFormulario"});
+    
+    encabezadoTablaBoton.appendChild(imagenRegistro);
+    encabezadoTablaBoton.appendChild(botonAddGestion);
+
+    const tabla = crearElemento("table",undefined,{id:"tablaEditoriales", class:"table table-striped responsive"});
     contenedor.appendChild(tabla);
+
+    botonAddGestion.addEventListener("click", () => formEditorial());
 
     const parametrosLibros = {
         allEditoriales: JSON.stringify({
@@ -112,7 +130,7 @@ function tablaEditoriales() {
                         }
                     ]
                 });
-                $('.dt-start').eq(0).addClass('encabezadoTabla');
+                // $('.dt-start').eq(0).addClass('encabezadoTabla');
                 $('.dt-search input').attr('placeholder', 'Buscador');                
                 $('#tablaEditoriales').on('click','.btn-edit', function() {
                     let idBtnEditorial = this.id;
